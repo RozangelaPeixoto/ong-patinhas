@@ -1,0 +1,568 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Montserrat', 'sans-serif';
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #263138;
+}
+
+
+header {
+    background-color: #02ebf7;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  header nav a {
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 32px;
+    text-decoration: none;
+  }
+  header nav a:hover {
+      transform: scale(1.1);
+      color: #070c0c; 
+  }
+  #inicio {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        padding: 24px 80px 120px 80px; 
+        position: relative;
+  }
+  h1,
+  h2 {
+        font-weight: 600;
+        font-size: 32px;
+        margin-bottom: 32px;
+  }
+  .paragrafo {
+    line-height: 150%;
+    margin-bottom: 32px;
+
+  }
+
+  .botao {
+        background-color: #02ebf7;
+        border-radius: 8px; 
+        color: #FFFFFF;
+        padding: 16px 32px;
+        text-decoration: none;
+  }
+  .botao-transparente{
+        background-color: transparent;
+        color: #02ebf7;
+        padding: 16px 32px;
+        text-underline-offset: 4px; 
+
+  }
+
+  .absolute {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -10;
+  }
+#clinica {
+      display: flex;
+      align-items: center;
+      gap: 64px;
+      padding: 64px 80px;
+}
+#clinica li{
+      margin-bottom: 16px;
+      margin-left: 32px;
+}
+
+#farmacia {
+      transform: scale(1.8);
+      padding: 64px 80px;
+      text-align: center;
+}
+#farmacia img {
+      margin: 64px auto;
+}
+#farmacia .paragrafo {
+      max-width: 950px;
+      margin: 0 auto;
+      }
+#duvidas {
+      
+      display: flex;
+      align-items: center;
+      gap: 64px;
+      padding: 64px 80px;
+}
+.duvida {
+      position: relative;
+}
+
+.duvida h3{
+      border: 2px solid #02ebf7;
+      border-radius: 8px;
+      cursor:pointer;
+      padding: 24px;
+}
+
+.duvida img {
+      position: absolute;
+      top: 32px;
+      right: 24px;
+}
+.duvida .paragrafo {
+      border-right:1px solid #02ebf7;
+      border-bottom:1px solid #02ebf7;
+      border-left:1px solid #02ebf7;
+      border-radius: 0 0 8px 8px;
+      margin-top: -8px;
+      padding: 0 24px;
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: .2s;
+}
+
+.duvida.ativa .paragrafo {
+      height: fit-content;
+      opacity: 1;
+      padding: 24px;
+}
+
+footer{
+      background-color: rgba(255,152,108,0.25);
+      display: flex;
+      justify-content: space-between;
+      gap: 80px;
+      padding: 64px 80px;
+}
+
+footer img, 
+footer .titulo {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 24px;
+}
+
+footer nav a {
+      color: #ffffff;
+      display: block;
+      margin-bottom: 16px;
+      text-decoration: none;
+      
+
+}
+footer p {
+      margin-bottom: 16px;
+      max-width: 350px;
+}
+footer p a {
+      color: #ffffff;
+      text-decoration: none;
+}
+#copyright {
+      background-color: #ffffff;
+      color: #FFFFFF;
+      padding: 24px;
+      text-align: center;
+      }
+#copyright a{
+      color: #FF9A6C;
+}
+
+nav a {
+      transform: scale(1.1);
+}
+
+ #adoção {
+      padding: 40px 80px;
+      text-align: center;
+  }
+
+  .cachorros {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+  }
+
+  .cachorro {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      max-width: 250px;
+      text-align: center;
+      margin: 16px;
+  }
+
+  .cachorro img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+  }
+
+  .botao {
+      display: inline-block;
+      background-color: #02ebf7;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 16px;
+      transition: background-color 0.3s;
+  }
+
+  .botao:hover {
+      background-color: #0191c8;
+  }
+
+  /*esse codigo é da pagina quem somos */
+  /* index.css */
+body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+  }
+  
+  header {
+      background-color: #02ebf7;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+  }
+  
+  header a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+  }
+  
+
+  
+  main {
+      padding: 2rem;
+  }
+  
+  h1 {
+      color: #02ebf7;
+  }
+  
+  .institucional {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+  }
+  
+  .institucional > div {
+      flex: 1;
+      padding: 1rem;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .institucional h2 {
+      color: #02ebf7;
+  }
+  
+  .institucional ul {
+      list-style: none;
+      padding: 0;
+  }
+  
+  .institucional ul li {
+      margin-bottom: 1rem;
+  }
+  
+  .botao {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      color: #fff;
+      background-color: #02ebf7;
+      text-decoration: none;
+      border-radius: 4px;
+  }
+  
+  .botao:hover {
+      background-color: #02ebf7;
+  }
+  
+  footer {
+      background-color: #02ebf7;
+      color: #fff;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+  }
+  
+  footer div {
+      flex: 1;
+  }
+  
+  footer .titulo {
+      font-weight: 600;
+  }
+  
+  footer a {
+      color: #fff;
+      text-decoration: none;
+  }
+  
+  footer a:hover {
+      text-decoration: underline;
+  }
+  
+  #copyright {
+      background-color: #02ebf7;
+      color: #fff;
+      text-align: center;
+      padding: 0.5rem;
+  }
+  
+  #copyright a {
+      color: #fff;
+      text-decoration: none;
+  }
+  
+  #copyright a:hover {
+      text-decoration: underline;
+  }
+  * {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #263138;
+}
+
+header {
+    background-color: #02ebf7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 60px;
+}
+
+header nav a {
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 32px;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    transform: scale(1.3);
+    color: #070c0c; /* Cor ao passar o mouse */
+}
+
+h1, h2 {
+    font-weight: 600;
+    font-size: 32px;
+    margin-bottom: 32px;
+}
+
+.paragrafo {
+    line-height: 150%;
+    margin-bottom: 32px;
+}
+
+.botao {
+    background-color: #02ebf7;
+    border-radius: 8px; 
+    color: #FFFFFF;
+    padding: 16px 32px;
+    text-decoration: none;
+}
+
+.botao-transparente {
+    background-color: transparent;
+    color: #02ebf7;
+    padding: 16px 32px;
+    text-underline-offset: 4px; 
+}
+
+footer {
+    background-color: 02ebf7(108, 228, 255, 0.25);
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    padding: 64px 80px;
+}
+
+footer img, 
+footer .titulo {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+footer nav a {
+    color: #263138;
+    display: block;
+    margin-bottom: 16px;
+    text-decoration: none;
+}
+
+footer p {
+    margin-bottom: 16px;
+    max-width: 350px;
+}
+
+footer p a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#copyright {
+    background-color: #263138;
+    color: #FFFFFF;
+    padding: 24px;
+    text-align: center;
+}
+
+#copyright a {
+    color: #02ebf7;
+}
+
+/* Estilo para o acordeão */
+.accordion-content {
+    border: 1px solid #02ebf7;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    padding: 16px;
+    display: none; /* Escondido por padrão */
+}
+
+.accordion-content.show {
+    display: block; /* Mostra quando ativo */
+}
+
+/* Estilos específicos para seções */
+#adoção {
+    padding: 40px 80px;
+    text-align: center;
+}
+
+.cachorros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+
+.cachorro {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    max-width: 250px;
+    text-align: center;
+    margin: 16px;
+}
+
+.cachorro img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.duvida {
+    position: relative;
+}
+
+.duvida h3 {
+    border: 2px solid #02ebf7;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 24px;
+}
+
+.duvida .paragrafo {
+    border: 1px solid #02ebf7;
+    border-radius: 0 0 8px 8px;
+    margin-top: -8px;
+    padding: 0 24px;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.duvida.ativa .paragrafo {
+    height: fit-content;
+    opacity: 1;
+    padding: 24px;
+}
+/* Adapta o layout para telas menores que 768px (como smartphones) */
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header img {
+        width: 200px; /* Ajusta o tamanho do logo */
+        height: auto;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav a {
+        margin: 10px 0;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    #inicio img {
+        width: 100%;
+        height: auto;
+    }
+
+    .botao, .botao-transparente {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    #clinica img, #duvidas img {
+        width: 100%;
+        height: auto;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer div {
+        margin-bottom: 20px;
+    }
+}
