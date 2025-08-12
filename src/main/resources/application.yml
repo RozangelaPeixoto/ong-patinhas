@@ -1,0 +1,13 @@
+spring:
+  flyway:
+    enabled: 'true'
+    locations: classpath:db/migration
+  datasource:
+    username: ${DATABASE_USERNAME}
+    url: ${DATABASE_URL}
+    password: ${DATABASE_PASSWORD}
+  application:
+    name: OngPatinhas
+  jpa:
+    hibernate:
+      ddl-auto: validate
