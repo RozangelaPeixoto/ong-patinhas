@@ -3,7 +3,6 @@ package org.ongpatinhas.config;
 import com.mercadopago.MercadoPagoConfig;
 import com.mercadopago.exceptions.MPException;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
