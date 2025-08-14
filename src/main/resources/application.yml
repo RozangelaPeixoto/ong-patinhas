@@ -11,3 +11,6 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+  mercadopago:
+    access-token: ${MP_ACCESS_TOKEN}
+    public-key: ${MP_PUBLIC_KEY}
