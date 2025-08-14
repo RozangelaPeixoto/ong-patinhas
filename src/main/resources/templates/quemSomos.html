@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONG Das Patinhas - Adoção de Cachorros</title>
     <meta name="description" content="Encontre seu novo amigo de quatro patas na ONG Das Patinhas. Veja os cães disponíveis para adoção com fotos, raça, idade e habilidades.">
-    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
@@ -19,10 +19,10 @@
             <img src="../static/img/logo.png" alt="ONG Das Patinhas" width="300" height="80">
         </a>
         <nav>
-            <a href="index.html">Início</a>
-            <a href="quemSomos.html">Quem somos</a>
-            <a href="doacao.html">Doação</a>
-            <a href="adocao.html">Adoção</a>
+            <a th:href="@{/}">Início</a>
+            <a th:href="@{/doacao}">Doação</a>
+            <a th:href="@{/adocao}">Adoção</a>
+            <a th:href="@{/quemsomos}">Quem Somos</a>
         </nav>
     </header>
 

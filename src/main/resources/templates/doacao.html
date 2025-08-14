@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONG Das Patinhas - Doações</title>
     <meta name="description" content="Contribua para a ONG Das Patinhas com doações via Pix ou transferência bancária. Ajude-nos a continuar nosso trabalho com animais abandonados.">
-    <link rel="stylesheet" href="../static/css/index.css">
-    <link rel="stylesheet" href="../static/css/doacao.css">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/doacao.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
@@ -21,10 +21,10 @@
             <img src="../static/img/logo.png" alt="ONG Das Patinhas" width="300" height="80">
         </a>
         <nav>
-            <a href="index.html">Início</a>
-            <a href="quemSomos.html">Quem somos</a>
-            <a href="doacao.html">Doação</a>
-            <a href="adocao.html">Adoção</a>
+            <a th:href="@{/}">Início</a>
+            <a th:href="@{/doacao}">Doação</a>
+            <a th:href="@{/adocao}">Adoção</a>
+            <a th:href="@{/quemsomos}">Quem Somos</a>
         </nav>
     </header>
 
@@ -33,39 +33,19 @@
             <div class="doacao-info">
                 <h1>Contribua para a ONG Das Patinhas</h1>
                 <p>Seu apoio financeiro é crucial para continuarmos nosso trabalho de resgate, cuidados e adoção de animais. Com a sua doação, podemos oferecer melhor atendimento veterinário, alimentos e abrigo para nossos animais.</p>
-        
-                <h2>Formas de Doação</h2>
-                <div class="informacoes">
-                    <div>
-                        <img src="../static/img/pixExemplo.png" alt="Pix">
-                        <h3>Doação via Pix</h3>
-                        <p>Chave Pix: <strong>pix@ongdaspatinhas.org.br</strong></p>
-                        <p>Faça sua doação diretamente pelo aplicativo do seu banco usando a chave Pix acima.</p>
-                    </div>
-        
-                    <div>
-                        <img src="../static/img/bancoExemplo.png" alt="Transferência Bancária">
-                        <h3>Doação via Transferência Bancária</h3>
-                        <p><strong>Banco:</strong> Banco Bradesco</p>
-                        <p><strong>Agência:</strong> 1234</p>
-                        <p><strong>Conta:</strong> 56789-0</p>
-                        <p><strong>CNPJ:</strong> 12.345.678/0001-90</p>
-                        <p>Realize a transferência para a conta acima e envie o comprovante para nosso e-mail: <strong>doacoes@ongdaspatinhas.org.br</strong>.</p>
-                    </div>
-                </div>
-        
+
                 <h2>Formulário de Doação</h2>
                 <div class="formulario-doacao">
-                    <form id="doacaoForm" action="" method="POST">
-                        <input type="text" name="nome" placeholder="Seu Nome" required>
-                        <input type="email" name="email" placeholder="Seu Email" required>
-                        <input type="number" name="valor" placeholder="Valor da Doação" required>
-                        <textarea name="mensagem" rows="4" placeholder="Mensagem (opcional)"></textarea>
-                        <button type="submit">Fazer Doação</button>
+                    <form th:action="@{/checkout}" id="doacaoForm" method="post">
+                        <input type="text" id="nome" name="nome" placeholder="Seu Nome" required>
+                        <input type="email" id="email" name="email" placeholder="Seu Email" required>
+                        <input type="number" step="1.00" id="valor" name="valor" placeholder="Valor da Doação" required>
+                        <button type="submit">Enviar Doação</button>
                     </form>
                 </div>
             </div>
         </section>
+
         
     </main>
 
