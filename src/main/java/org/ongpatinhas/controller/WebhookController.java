@@ -20,10 +20,13 @@ public class WebhookController {
 
     @PostMapping
     public void receberWebhook(@RequestBody Map<String, Object> payload) {
-        Map<String, Object> data = (Map<String, Object>) payload.get("data");
-        if (data != null && data.get("id") != null) {
-            Long paymentId = Long.valueOf(data.get("id").toString());
-            mercadoPagoService.processPayment(paymentId);
+        Object dataObj = payload.get("data");
+        if (dataObj instanceof Map<?, ?> dataMap) {
+            Object idObj = dataMap.get("id");
+            if (idObj != null) {
+                Long paymentId = Long.valueOf(idObj.toString());
+                mercadoPagoService.processPayment(paymentId);
+            }
         }
     }
 

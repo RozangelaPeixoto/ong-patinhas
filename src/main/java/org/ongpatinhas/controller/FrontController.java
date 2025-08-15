@@ -42,7 +42,7 @@ public class FrontController {
     @PostMapping("/doacao")
     public String checkout(@Valid @ModelAttribute("donation") DonationDTO donationDTO,
                            BindingResult result,
-                           Model model) throws Exception {
+                           Model model) {
 
         if (result.hasErrors()) {
             return "doacao";

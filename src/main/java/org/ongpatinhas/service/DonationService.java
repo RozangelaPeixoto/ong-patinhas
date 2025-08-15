@@ -34,15 +34,14 @@ public class DonationService {
         donationRepository.save(donation);
     }
 
-    public boolean updateDonation(String id, String formaPagamento, Long paymentId, String status) {
+    public void updateDonation(String id, String formaPagamento, Long paymentId, String status) {
         Donation donation = findDonationById(id);
-        if (donation == null) return false;
+        if (donation == null) return;
         donation.setPaymentType(formaPagamento);
         donation.setIdMercadoPago(paymentId);
         donation.setPaidAt(LocalDateTime.now());
         donation.setStatus(status);
         saveDonation(donation);
-        return true;
     }
 
 }

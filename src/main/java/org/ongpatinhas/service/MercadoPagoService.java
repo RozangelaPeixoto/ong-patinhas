@@ -10,6 +10,8 @@ import com.mercadopago.exceptions.MPApiException;
 import com.mercadopago.exceptions.MPException;
 import com.mercadopago.resources.preference.Preference;
 import org.ongpatinhas.dto.DonationDTO;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -33,9 +35,12 @@ public class MercadoPagoService {
         this.donationService = donationService;
     }
 
-    private static final String SUCCESS_URL = "https://portfolio-azure-nine-95.vercel.app/success";
-    private static final String FAILURE_URL = "https://portfolio-azure-nine-95.vercel.app/failure";
-    private static final String PENDING_URL = "https://portfolio-azure-nine-95.vercel.app/pending";
+    @Value("${spring.mercadopago.success.url}")
+    private String successUrl;
+    @Value("${spring.mercadopago.failure.url}")
+    private String failureUrl;
+    @Value("${spring.mercadopago.pending.url}")
+    private String pendingUrl;
 
     public String createDonationPreference(DonationDTO donationDTO){
 
@@ -74,9 +79,9 @@ public class MercadoPagoService {
 
     private PreferenceBackUrlsRequest getBackUrls() {
         return PreferenceBackUrlsRequest.builder()
-                .success(SUCCESS_URL)
-                .failure(FAILURE_URL)
-                .pending(PENDING_URL)
+                .success(successUrl)
+                .failure(failureUrl)
+                .pending(pendingUrl)
                 .build();
     }
 
@@ -100,7 +105,14 @@ public class MercadoPagoService {
         headers.setBearerAuth(MercadoPagoConfig.getAccessToken());
         HttpEntity<Void> entity = new HttpEntity<>(headers);
 
-        ResponseEntity<Map> response = restTemplate.exchange(url, HttpMethod.GET, entity, Map.class);
+        ResponseEntity<Map<String, Object>> response = restTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                entity,
+                new ParameterizedTypeReference<>() {
+                }
+        );
+
         return response.getBody();
     }
 
