@@ -1,7 +1,7 @@
 package org.ongpatinhas.controller;
 
 import org.ongpatinhas.dto.DonationDTO;
-import org.ongpatinhas.service.DonationService;
+import org.ongpatinhas.service.MercadoPagoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class FrontController {
 
-    private final DonationService donationService;
+    private final MercadoPagoService mercadoPagoService;
 
-    public FrontController(DonationService donationService) {
-        this.donationService = donationService;
+    public FrontController(MercadoPagoService mercadoPagoService) {
+        this.mercadoPagoService = mercadoPagoService;
     }
 
     @GetMapping("/")
@@ -35,9 +35,9 @@ public class FrontController {
         return "quemsomos";
     }
 
-    @PostMapping("/adocao")
+    @PostMapping("/doacao")
     public String checkout(DonationDTO donationDTO) throws Exception {
-        String url = donationService.createPreference(donationDTO);
+        String url = mercadoPagoService.createDonationPreference(donationDTO);
         return "redirect:"+url;
     }
 

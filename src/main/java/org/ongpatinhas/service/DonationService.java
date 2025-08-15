@@ -30,40 +30,12 @@ import java.util.UUID;
 public class DonationService {
 
     private final DonationRepository donationRepository;
-    private final RestTemplate restTemplate = new RestTemplate();
 
     public DonationService(DonationRepository donationRepository) {
         this.donationRepository = donationRepository;
     }
 
-    public String createPreference(DonationDTO donationDTO){
-
-        PreferenceClient client = new PreferenceClient();
-        String uuid = UUID.randomUUID().toString();
-        PreferenceItemRequest item = getPreferenceItemRequest(donationDTO.value());
-
-        PreferenceBackUrlsRequest backUrls = getBackUrls();
-
-        PreferenceRequest request = getRequest(item, backUrls, uuid);
-
-        Map<String, String> headers =  new HashMap<>();
-        headers.put("X-Idempotency-Key", uuid);
-
-        MPRequestOptions requestOptions = MPRequestOptions.builder()
-                .customHeaders(headers)
-                .build();
-        try {
-            Preference preference = client.create(request, requestOptions);
-            createDonation(donationDTO, uuid);
-            return preference.getInitPoint();
-        } catch (MPApiException e) {
-            return e.getApiResponse().getContent();
-        } catch (MPException e) {
-            return e.getMessage();
-        }
-    }
-
-    private void createDonation(DonationDTO donationDTO, String uuid) {
+    public void createDonation(DonationDTO donationDTO, String uuid) {
         Donation donation = new Donation();
         donation.setId(uuid);
         donation.setName(donationDTO.name());
@@ -73,46 +45,23 @@ public class DonationService {
         saveDonation(donation);
     }
 
-    private PreferenceRequest getRequest(PreferenceItemRequest item, PreferenceBackUrlsRequest backUrls, String uuid) {
-        return PreferenceRequest.builder()
-                .items(List.of(item))
-                .backUrls(backUrls)
-                .autoReturn("all")
-                .externalReference(uuid)
-                .build();
-    }
-
-    private PreferenceBackUrlsRequest getBackUrls() {
-        return PreferenceBackUrlsRequest.builder()
-                .success("https://portfolio-azure-nine-95.vercel.app/success")
-                .failure("https://portfolio-azure-nine-95.vercel.app/failure")
-                .pending("https://portfolio-azure-nine-95.vercel.app/pending")
-                .build();
-    }
-
-    private PreferenceItemRequest getPreferenceItemRequest(BigDecimal value) {
-        return PreferenceItemRequest.builder()
-                .title("Doação Ong Patinhas")
-                .quantity(1)
-                .unitPrice(value)
-                .build();
-    }
-
-    public Map<String, Object> findPayment(Long paymentId) {
-        String url = "https://api.mercadopago.com/v1/payments/" + paymentId;
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBearerAuth(MercadoPagoConfig.getAccessToken());
-        HttpEntity<Void> entity = new HttpEntity<>(headers);
-
-        ResponseEntity<Map> response = restTemplate.exchange(url, HttpMethod.GET, entity, Map.class);
-        return response.getBody();
-    }
-
-    public Donation findPaymentById(String id){
+    private Donation findDonationById(String id){
         return donationRepository.findById(id).orElse(null);
     }
 
-    public void saveDonation(Donation doantion){
-        donationRepository.save(doantion);
+    public void saveDonation(Donation donation){
+        donationRepository.save(donation);
     }
+
+    public boolean updateDonation(String id, String formaPagamento, Long paymentId, String status) {
+        Donation donation = findDonationById(id);
+        if (donation == null) return false;
+        donation.setPaymentType(formaPagamento);
+        donation.setIdMercadoPago(paymentId);
+        donation.setPaidAt(LocalDateTime.now());
+        donation.setStatus(status);
+        saveDonation(donation);
+        return true;
+    }
+
 }
