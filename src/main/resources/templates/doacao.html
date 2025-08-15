@@ -36,10 +36,10 @@
 
                 <h2>Formulário de Doação</h2>
                 <div class="formulario-doacao">
-                    <form th:action="@{/checkout}" id="doacaoForm" method="post">
-                        <input type="text" id="nome" name="nome" placeholder="Seu Nome" required>
+                    <form th:action="@{/adocao}" id="doacaoForm" method="post">
+                        <input type="text" id="name" name="name" placeholder="Seu Nome" required>
                         <input type="email" id="email" name="email" placeholder="Seu Email" required>
-                        <input type="number" step="1.00" id="valor" name="valor" placeholder="Valor da Doação" required>
+                        <input type="number" step="1.00" id="value" name="value" placeholder="Valor da Doação" required>
                         <button type="submit">Enviar Doação</button>
                     </form>
                 </div>
