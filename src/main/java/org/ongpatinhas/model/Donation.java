@@ -11,7 +11,6 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +21,8 @@ import java.util.UUID;
 public class Donation {
 
     @Id
-    private UUID id;
+    @Column(columnDefinition = "CHAR(36)")
+    private String id;
     private String name;
     private String email;
     private BigDecimal value;
