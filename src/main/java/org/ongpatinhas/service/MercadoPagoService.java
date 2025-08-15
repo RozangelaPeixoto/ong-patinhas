@@ -14,6 +14,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
@@ -22,14 +23,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+@Service
 public class MercadoPagoService {
 
     private final DonationService donationService;
-    private final RestTemplate restTemplate;
+    private final RestTemplate restTemplate = new RestTemplate();
 
-    public MercadoPagoService(DonationService donationService, RestTemplate restTemplate) {
+    public MercadoPagoService(DonationService donationService) {
         this.donationService = donationService;
-        this.restTemplate = restTemplate;
     }
 
     private static final String SUCCESS_URL = "https://portfolio-azure-nine-95.vercel.app/success";

@@ -36,10 +36,13 @@
 
                 <h2>Formulário de Doação</h2>
                 <div class="formulario-doacao">
-                    <form th:action="@{/adocao}" id="doacaoForm" method="post">
-                        <input type="text" id="name" name="name" placeholder="Seu Nome" required>
-                        <input type="email" id="email" name="email" placeholder="Seu Email" required>
-                        <input type="number" step="1.00" id="value" name="value" placeholder="Valor da Doação" required>
+                    <form th:action="@{/doacao}" th:object="${donation}" id="doacaoForm" method="post">
+                        <input type="text" th:field="*{name}" placeholder="Seu Nome"/>
+                        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                        <input type="email" th:field="*{email}" placeholder="Seu Email" />
+                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                        <input type="number" th:field="*{value}" step="1.00" placeholder="Valor da Doação"/>
+                        <span th:if="${#fields.hasErrors('value')}" th:errors="*{value}"></span>
                         <button type="submit">Enviar Doação</button>
                     </form>
                 </div>

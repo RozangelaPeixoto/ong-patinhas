@@ -1,30 +1,11 @@
 package org.ongpatinhas.service;
 
-import com.mercadopago.MercadoPagoConfig;
-import com.mercadopago.client.preference.PreferenceBackUrlsRequest;
-import com.mercadopago.client.preference.PreferenceClient;
-import com.mercadopago.client.preference.PreferenceItemRequest;
-import com.mercadopago.client.preference.PreferenceRequest;
-import com.mercadopago.core.MPRequestOptions;
-import com.mercadopago.exceptions.MPApiException;
-import com.mercadopago.exceptions.MPException;
-import com.mercadopago.resources.preference.Preference;
 import org.ongpatinhas.dto.DonationDTO;
 import org.ongpatinhas.model.Donation;
 import org.ongpatinhas.repository.DonationRepository;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 @Service
 public class DonationService {

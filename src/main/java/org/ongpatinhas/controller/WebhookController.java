@@ -1,14 +1,11 @@
 package org.ongpatinhas.controller;
 
-import org.ongpatinhas.model.Donation;
-import org.ongpatinhas.service.DonationService;
 import org.ongpatinhas.service.MercadoPagoService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
 import java.util.Map;
 
 @RestController
