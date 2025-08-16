@@ -16,7 +16,7 @@ public class DonationService {
         this.donationRepository = donationRepository;
     }
 
-    public void createDonation(DonationDTO donationDTO, String uuid) {
+    public Donation createDonation(DonationDTO donationDTO, String uuid) {
         Donation donation = new Donation();
         donation.setId(uuid);
         donation.setName(donationDTO.name());
@@ -24,9 +24,10 @@ public class DonationService {
         donation.setValue(donationDTO.value());
         donation.setCreatedAt(LocalDateTime.now());
         saveDonation(donation);
+        return donation;
     }
 
-    private Donation findDonationById(String id){
+    Donation findDonationById(String id){
         return donationRepository.findById(id).orElse(null);
     }
 
@@ -34,14 +35,15 @@ public class DonationService {
         donationRepository.save(donation);
     }
 
-    public void updateDonation(String id, String formaPagamento, Long paymentId, String status) {
+    public boolean updateDonation(String id, String formaPagamento, Long paymentId, String status) {
         Donation donation = findDonationById(id);
-        if (donation == null) return;
+        if (donation == null) return false;
         donation.setPaymentType(formaPagamento);
         donation.setIdMercadoPago(paymentId);
         donation.setPaidAt(LocalDateTime.now());
         donation.setStatus(status);
         saveDonation(donation);
+        return true;
     }
 
 }
