@@ -29,10 +29,11 @@ import java.util.UUID;
 public class MercadoPagoService {
 
     private final DonationService donationService;
-    private final RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate;
 
-    public MercadoPagoService(DonationService donationService) {
+    public MercadoPagoService(DonationService donationService, RestTemplate restTemplate) {
         this.donationService = donationService;
+        this.restTemplate = restTemplate;
     }
 
     @Value("${spring.mercadopago.success.url}")
