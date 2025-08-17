@@ -1,5 +1,6 @@
 package org.ongpatinhas.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.ongpatinhas.dto.DonationDTO;
 import org.ongpatinhas.service.MercadoPagoService;
@@ -52,7 +53,23 @@ public class FrontController {
         return "redirect:"+url;
     }
 
+    @GetMapping({"/sucesso", "/cancelado", "/pendente"})
+    public String handleRequest(HttpServletRequest request, Model model) {
+        String path = request.getRequestURI();
+        String status = path.substring(1,2).toUpperCase().concat(path.substring(2));
 
+        model.addAttribute("status", status);
 
+        String message = switch (path) {
+            case "/sucesso" -> "Obrigada pela sua doação";
+            case "/cancelado" -> "Parece que ocorreu algum problema com a sua doação.";
+            case "/pendente" -> "Sua doação está pendente.";
+            default ->  "Status não encontrado";
+        };
+
+        model.addAttribute("message", message);
+
+        return "retorno-pagamento";
+    }
 
 }
