@@ -2,7 +2,7 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: [*] # ou a branch de deploy
+    branches: ["**"]
   workflow_run:
     workflows: ["Build and Test Spring App"]
     types:

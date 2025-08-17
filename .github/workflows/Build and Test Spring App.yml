@@ -2,9 +2,9 @@ name: Build and Test Spring App
 
 on:
   push:
-    branches: [*]
+    branches: ["**"]
   pull_request:
-    branches: [*]
+    branches: ["**"]
 
 jobs:
   build:
