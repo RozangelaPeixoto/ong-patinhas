@@ -12,3 +12,12 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+  mercadopago:
+    access-token: ${MP_ACCESS_TOKEN}
+    public-key: ${MP_PUBLIC_KEY}
+    success:
+      url: https://portfolio-azure-nine-95.vercel.app/success
+    pending:
+      url: https://portfolio-azure-nine-95.vercel.app/pending
+    failure:
+      url: https://portfolio-azure-nine-95.vercel.app/failure

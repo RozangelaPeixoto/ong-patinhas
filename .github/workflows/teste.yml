@@ -46,7 +46,9 @@ jobs:
 #        run: sleep 90
 
       - name: Run tests with Maven
-
+        env:
+          MP_ACCESS_TOKEN: ${{ secrets.MP_ACCESS_TOKEN}}
+          MP_PUBLIC_KEY: ${{ secrets.MP_PUBLIC_KEY}}
         run: mvn --batch-mode test -Dspring.profiles.active=test
 
 

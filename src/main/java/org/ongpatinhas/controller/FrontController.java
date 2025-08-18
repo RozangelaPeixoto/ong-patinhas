@@ -1,10 +1,24 @@
 package org.ongpatinhas.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
+import org.ongpatinhas.dto.DonationDTO;
+import org.ongpatinhas.service.MercadoPagoService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class FrontController {
+
+    private final MercadoPagoService mercadoPagoService;
+
+    public FrontController(MercadoPagoService mercadoPagoService) {
+        this.mercadoPagoService = mercadoPagoService;
+    }
 
     @GetMapping("/")
     public String index() {
@@ -12,7 +26,7 @@ public class FrontController {
     }
 
     @GetMapping("/doacao")
-    public String doacao() {
+    public String doacao(@ModelAttribute("donation") DonationDTO donationDTO) {
         return "doacao";
     }
 
@@ -26,9 +40,36 @@ public class FrontController {
         return "quemsomos";
     }
 
+    @PostMapping("/doacao")
+    public String checkout(@Valid @ModelAttribute("donation") DonationDTO donationDTO,
+                           BindingResult result,
+                           Model model) {
 
+        if (result.hasErrors()) {
+            return "doacao";
+        }
 
+        String url = mercadoPagoService.createDonationPreference(donationDTO);
+        return "redirect:"+url;
+    }
 
+    @GetMapping({"/sucesso", "/cancelado", "/pendente"})
+    public String handleRequest(HttpServletRequest request, Model model) {
+        String path = request.getRequestURI();
+        String status = path.substring(1,2).toUpperCase().concat(path.substring(2));
 
+        model.addAttribute("status", status);
+
+        String message = switch (path) {
+            case "/sucesso" -> "Obrigada pela sua doação";
+            case "/cancelado" -> "Parece que ocorreu algum problema com a sua doação.";
+            case "/pendente" -> "Sua doação está pendente.";
+            default ->  "Status não encontrado";
+        };
+
+        model.addAttribute("message", message);
+
+        return "retorno-pagamento";
+    }
 
 }
