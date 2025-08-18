@@ -21,7 +21,6 @@ import java.time.LocalDateTime;
 public class Donation {
 
     @Id
-    @Column(columnDefinition = "CHAR(36)")
     private String id;
     private String name;
     private String email;
