@@ -43,7 +43,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Esperar o MySQL inicializar
-        run: sleep 120
+        run: sleep 90
 
       - name: Run tests with Maven
         env:
