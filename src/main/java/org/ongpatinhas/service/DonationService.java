@@ -21,7 +21,7 @@ public class DonationService {
         donation.setId(uuid);
         donation.setName(donationDTO.name());
         donation.setEmail(donationDTO.email());
-        donation.setValue(donationDTO.value());
+        donation.setAmount(donationDTO.value());
         donation.setCreatedAt(LocalDateTime.now());
         saveDonation(donation);
         return donation;
