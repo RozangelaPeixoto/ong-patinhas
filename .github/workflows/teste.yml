@@ -76,7 +76,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /root 
+            cd /ubuntu
             rm .env
             cat > .env << EOF
             MP_ACCESS_TOKEN=${{ secrets.MP_ACCESS_TOKEN }}
