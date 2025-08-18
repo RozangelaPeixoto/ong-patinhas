@@ -20,6 +20,9 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      - name: Dar permissão ao mvnw
+        run: chmod +x ./mvnw
+
       - name: Run tests with Maven
         run: mvn test
 
