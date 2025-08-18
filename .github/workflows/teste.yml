@@ -10,19 +10,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    services:
-      mysql:
-        image: mysql:8
-        ports:
-          - 3306:3306
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: testdb
-        options: >-
-          --health-cmd="mysqladmin ping -h 127.0.0.1 -proot"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=3
+#    services:
+#      mysql:
+#        image: mysql:8
+#        ports:
+#          - 3306:3306
+#        env:
+#          MYSQL_ROOT_PASSWORD: root
+#          MYSQL_DATABASE: testdb
+#        options: >-
+#          --health-cmd="mysqladmin ping -h 127.0.0.1 -proot"
+#          --health-interval=10s
+#          --health-timeout=5s
+#          --health-retries=3
 
     steps:
       - name: Checkout do código
@@ -42,15 +42,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Esperar o MySQL inicializar
-        run: sleep 90
+#      - name: Esperar o MySQL inicializar
+#        run: sleep 90
 
       - name: Run tests with Maven
-        env:
-          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/testdb
-          SPRING_DATASOURCE_USERNAME: root
-          SPRING_DATASOURCE_PASSWORD: root
-        run: mvn --batch-mode test
+#        env:
+#          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/testdb
+#          SPRING_DATASOURCE_USERNAME: root
+#          SPRING_DATASOURCE_PASSWORD: root
+        run: mvn --batch-mode test -Dspring.profiles.active=test
+
 
       - name: Build with Maven
         run: mvn --batch-mode clean package
