@@ -46,14 +46,16 @@ jobs:
 #        run: sleep 90
 
       - name: Run tests with Maven
-#        env:
-#          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/testdb
-#          SPRING_DATASOURCE_USERNAME: root
-#          SPRING_DATASOURCE_PASSWORD: root
+
         run: mvn --batch-mode test -Dspring.profiles.active=test
 
 
       - name: Build with Maven
+        env:
+          SPRING_DATASOURCE_URL: ${{ secrets.DATABASE_URL}}
+          SPRING_DATASOURCE_USERNAME: ${{ secrets.DATABASE_USERNAME}}
+          SPRING_DATASOURCE_PASSWORD: ${{ secrets.DATABASE_PASSWORD}}
+          SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
         run: mvn --batch-mode clean package
 
       - name: Login no Docker Hub
