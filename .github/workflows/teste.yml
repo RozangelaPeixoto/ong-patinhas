@@ -76,14 +76,14 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /ubuntu
-            rm .env
-            cat > .env << EOF
+            cd /home/ubuntu
+            sudo rm .env
+            sudo cat > .env << EOF
             MP_ACCESS_TOKEN=${{ secrets.MP_ACCESS_TOKEN }}
             MP_PUBLIC_KEY=${{ secrets.MP_PUBLIC_KEY }}
             DATABASE_URL=${{ secrets.DATABASE_URL }}
             DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }}
             DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}
             EOF
-            ./deploy.sh
+            sudo ./deploy.sh
 
