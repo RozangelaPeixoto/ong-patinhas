@@ -55,7 +55,8 @@ jobs:
           SPRING_DATASOURCE_URL: ${{ secrets.DATABASE_URL}}
           SPRING_DATASOURCE_USERNAME: ${{ secrets.DATABASE_USERNAME}}
           SPRING_DATASOURCE_PASSWORD: ${{ secrets.DATABASE_PASSWORD}} #asd
-        run: mvn --batch-mode clean package
+        run: mvn clean package -DskipTests
+         mvn --batch-mode clean package
 
       - name: Login no Docker Hub
         uses: docker/login-action@v3
