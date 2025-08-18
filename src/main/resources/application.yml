@@ -6,6 +6,11 @@ spring:
 #    username: ${DATABASE_USERNAME}
 #    url: ${DATABASE_URL}
 #    password: ${DATABASE_PASSWORD}
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/testdb
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
   application:
     name: OngPatinhas
   jpa:
