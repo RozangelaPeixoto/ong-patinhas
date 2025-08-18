@@ -55,7 +55,6 @@ jobs:
           SPRING_DATASOURCE_URL: ${{ secrets.DATABASE_URL}}
           SPRING_DATASOURCE_USERNAME: ${{ secrets.DATABASE_USERNAME}}
           SPRING_DATASOURCE_PASSWORD: ${{ secrets.DATABASE_PASSWORD}}
-          SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
         run: mvn --batch-mode clean package
 
       - name: Login no Docker Hub
