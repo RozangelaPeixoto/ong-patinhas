@@ -24,7 +24,7 @@ public class Donation {
     private String id;
     private String name;
     private String email;
-    private BigDecimal value;
+    private BigDecimal amount;
     @Column(name="payment_type")
     private String paymentType;
     private String status;
