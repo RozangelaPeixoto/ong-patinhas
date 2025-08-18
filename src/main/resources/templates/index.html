@@ -5,18 +5,22 @@
     <title>ONG DAS PATINHAS</title>
     <meta name="description" content="Garanta uma vida longa e cheia de alegria para o seu melhor amigo">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="../static/img/logo-factoring.png" type="image/x-icon">
-    <script src="../static/js/index.js" defer></script>
+    <link rel="icon" th:href="@{/img/logo-factoring.png}" type="image/x-icon">
+
+    <!-- JS -->
+    <script th:src="@{/js/index.js}" defer></script>
 </head>
 
 <body>
-    <header> 
-        <a href="index.html">
-            <img src="../static/img/logo.png" alt="ong das patinhas" width="300" height="80">
+    <header>
+        <a th:href="@{/}">
+            <img th:src="@{/img/logo.png}" alt="ong das patinhas" width="300" height="80">
         </a>
         <nav>
             <a th:href="@{/}">Início</a>
@@ -25,120 +29,133 @@
             <a th:href="@{/quemsomos}">Quem Somos</a>
         </nav>
     </header>
+
     <main>
         <section id="inicio">
-            <img src="../static/img/hero.png" alt="Imagem principal" width="580" height="580">
+            <img th:src="@{/img/hero.png}" alt="Imagem principal" width="580" height="580">
             <div>
                 <h1>ONG das Patinhas: Juntos, damos patinhas e corações para um futuro melhor!</h1>
-                <p  class="paragrafo">
-                  A ONG das Patinhas é uma organização dedicada ao resgate e cuidado de cães e gatos abandonados. Oferecemos abrigo, tratamento veterinário e buscamos lares amorosos para os animais que resgatamos.
-
-                  Nossos Projetos incluem abrigo e cuidados veterinários, campanhas de adoção, educação e conscientização sobre posse responsável e parcerias com outras organizações para expandir nosso impacto.
-                  
-                  Você pode ajudar adotando um animal, doando ração ou itens, voluntariando-se para nossas atividades e divulgando nossas campanhas.
+                <p class="paragrafo">
+                    A ONG das Patinhas é uma organização dedicada ao resgate e cuidado de cães e gatos abandonados.
+                    Oferecemos abrigo, tratamento veterinário e buscamos lares amorosos para os animais que resgatamos.
+                    <br><br>
+                    Nossos Projetos incluem abrigo e cuidados veterinários, campanhas de adoção, educação e conscientização
+                    sobre posse responsável e parcerias com outras organizações para expandir nosso impacto.
+                    <br><br>
+                    Você pode ajudar adotando um animal, doando ração ou itens, voluntariando-se para nossas atividades
+                    e divulgando nossas campanhas.
                 </p>
-                <a class="botao" href="https://wa.me/5597984173223" target="_blank">Marque uma visita </a>
-                <a class="botao-transparente" href="quemSomos.html">Conheça nossa ONG</a>
-            
+                <a class="botao" href="https://wa.me/559799999999" target="_blank">Marque uma visita</a>
+                <a class="botao-transparente" th:href="@{/quemsomos}">Conheça nossa ONG</a>
             </div>
-            <img class="absolute" src="../static/img/shape.png" alt="">
-      
+            <img class="absolute" th:src="@{/img/shape.png}" alt="" />
         </section>
 
-        <section id="clinica"> 
+        <section id="clinica">
             <div>
-                <h2>Veterinário de Qualidade</h2>
-                <p  class="paragrafo">
-                  <p>Ações da ONG Das Patinhas. </p> 
-                  <br>
-
-                  <P>A ONG Das Patinhas realiza várias ações essenciais para promover o bem-estar de cães e gatos em situação de vulnerabilidade:</P>
-                  <br>
-                  <P><b>1.Resgate e Acolhimento:</b> Resgatamos animais abandonados e maltratados, oferecendo-lhes abrigo seguro e carinho.</P>
-                  <br>
-                  <P><b>2.Cuidados Veterinários:</b> Proporcionamos atendimento médico completo, incluindo vacinação, tratamentos e castração.</P>
-                  <br>
-                  <P><b>3.Reabilitação e Socialização:</b> Trabalhamos para reabilitar e socializar os animais, preparando-os para adoção com programas de treinamento e suporte emocional.</P>
-                  <br>
-                  <P><b>4.Adoção Responsável:</b> Facilitamos adoções criteriosas para garantir que os animais encontrem lares amorosos e adequados.</P>
-                  <br>
-                  <P><b>5.Educação e Conscientização:</b> Realizamos campanhas e workshops para promover a posse responsável e a importância da castração.</P>
-                  <br>
-                  <P><b>6.Campanhas de Arrecadação e Parcerias:</b> Organize campanhas e parcerias para financiar nossos projetos e expandir nosso impacto.</P>
-                  <br>
-                  <P><b>7.Voluntariado e Engajamento Comunitário:</b> Incentivamos a participação da comunidade através do voluntariado e apoio em eventos e campanhas.</P>
-                  <br>
-                  Nossa missão é criar um futuro melhor para os animais, com o apoio da comunidade e um trabalho dedicado e apaixonado.
+                <h2>Ações da Ong Patinhas</h2>
+                <p class="paragrafo">
+                    A ONG Das Patinhas realiza várias ações essenciais para promover o bem-estar de cães e gatos em
+                    situação de vulnerabilidade:
                 </p>
-                <br>
                 <ul>
-                    <li>Consultas de rotina e exames de saúde abrangentes</li>
-                    <li>Vacinação e imunização</li>
-                    <li>Cirurgias e procedimentos veterinários</li>
-                    <li>Tratamento e controle de doenças</li>
-                    <li>Odontologia veterinária</li>
-                    <li>Atendimento de emergência 24 horas</li>
-                    <li>Nutrição e aconselhamento alimentar personalizado</li>
+                    <li>
+                        <p><b>1. Resgate e Acolhimento:</b> Resgatamos animais abandonados e maltratados, oferecendo-lhes abrigo
+                        seguro e carinho.</p>
+                    </li>
+                    <li>
+                        <p><b>2. Cuidados Veterinários:</b> Proporcionamos atendimento médico completo, incluindo vacinação,
+                        tratamentos e castração.</p>
+                    </li>
+                    <li>
+                        <p><b>3. Reabilitação e Socialização:</b> Trabalhamos para reabilitar e socializar os animais,
+                        preparando-os para adoção com programas de treinamento e suporte emocional.</p>
+                    </li>
+                    <li>
+                        <p><b>4. Adoção Responsável:</b> Facilitamos adoções criteriosas para garantir que os animais encontrem
+                        lares amorosos e adequados.</p>
+                    </li>
+                    <li>
+                        <p><b>5. Educação e Conscientização:</b> Realizamos campanhas e workshops para promover a posse
+                        responsável e a importância da castração.</p>
+                    </li>
+                    <li>
+                        <p><b>6. Campanhas de Arrecadação e Parcerias:</b> Organizamos campanhas e parcerias para financiar
+                        nossos projetos e expandir nosso impacto.</p>
+                    </li>
+                    <li>
+                        <p><b>7. Voluntariado e Engajamento Comunitário:</b> Incentivamos a participação da comunidade através
+                        do voluntariado e apoio em eventos e campanhas.</p>
+                    </li>
                 </ul>
+                <p>
+                    Nossa missão é criar um futuro melhor para os animais, com o apoio da comunidade e um trabalho dedicado
+                    e apaixonado.
+                </p>
             </div>
-            <img src="../static/img/clinic-img.svg" alt="" width="480" height="480" loading="lazy">
+            <img th:src="@{/img/clinic-img.svg}" alt="" width="480" height="480" loading="lazy">
         </section>
 
         <section id="duvidas">
-          <img src="../static/img/faq-img.svg" alt="Ilustração de animais" width="540" height="540" loading="lazy">
-          <div>
-            <h2>Ficou alguma dúvida?</h2>
-            <div class="duvida">
-              <h3>Quais serviços são oferecidos pela ONG Ont das Patinhas?</h3>
-              <img src="../static/img/arrow-down.svg" alt="Ícone de seta para baixo">
-              <p class="paragrafo">
-                A ONG Ont das Patinhas oferece uma variedade de serviços voltados para o cuidado e bem-estar dos animais, incluindo resgate, abrigo temporário, campanhas de adoção, vacinação e castração. Nossa missão é garantir que todos os animais tenham a oportunidade de viver em um lar amoroso e seguro.
-              </p>
+            <img th:src="@{/img/faq-img.svg}" alt="Ilustração de animais" width="540" height="540" loading="lazy">
+            <div>
+                <h2>Ficou alguma dúvida?</h2>
+
+                <div class="duvida">
+                    <h3>Quais serviços são oferecidos pela ONG Das Patinhas?</h3>
+                    <img th:src="@{/img/arrow-down.svg}" alt="Ícone de seta para baixo">
+                    <p class="paragrafo">
+                        A ONG Das Patinhas oferece uma variedade de serviços voltados para o cuidado e bem-estar dos
+                        animais, incluindo resgate, abrigo temporário, campanhas de adoção, vacinação e castração.
+                        Nossa missão é garantir que todos os animais tenham a oportunidade de viver em um lar amoroso e
+                        seguro.
+                    </p>
+                </div>
+
+                <div class="duvida">
+                    <h3>Como posso adotar um animal pela ONG Das Patinhas?</h3>
+                    <img th:src="@{/img/arrow-down.svg}" alt="Ícone de seta para baixo">
+                    <p class="paragrafo">
+                        Para adotar um animal, você pode visitar nossos eventos de adoção ou entrar em contato
+                        diretamente conosco por meio do nosso site. Nós avaliamos o perfil do adotante para garantir que
+                        os animais encontrem um lar adequado e amoroso.
+                    </p>
+                </div>
+
+                <div class="duvida">
+                    <h3>A ONG Das Patinhas aceita doações?</h3>
+                    <img th:src="@{/img/arrow-down.svg}" alt="Ícone de seta para baixo">
+                    <p class="paragrafo">
+                        Sim, aceitamos doações de alimentos, medicamentos, cobertores e itens de higiene para os
+                        animais. Também é possível fazer doações financeiras para apoiar nossos projetos. Cada
+                        contribuição faz uma grande diferença!
+                    </p>
+                </div>
+
+                <div class="duvida">
+                    <h3>Como posso me voluntariar?</h3>
+                    <img th:src="@{/img/arrow-down.svg}" alt="Ícone de seta para baixo">
+                    <p class="paragrafo">
+                        Se você deseja fazer parte da nossa equipe de voluntários, pode se inscrever através do nosso
+                        site ou comparecer a uma de nossas reuniões. Temos diversas formas de contribuição, como ajudar
+                        nos cuidados diários dos animais, participar de eventos de adoção e colaborar em campanhas de
+                        arrecadação.
+                    </p>
+                </div>
             </div>
-            <div class="duvida">
-              <h3>Como posso adotar um animal pela Ont das Patinhas?</h3>
-              <img src="../static/img/arrow-down.svg" alt="Ícone de seta para baixo">
-              <p class="paragrafo">
-                Para adotar um animal pela Ont das Patinhas, você pode visitar nossos eventos de adoção ou entrar em contato diretamente conosco por meio do nosso site. Nós avaliamos o perfil do adotante para garantir que os animais encontrem um lar adequado e amoroso.
-              </p>
-            </div>
-            <div class="duvida">
-              <h3>A ONG Ont das Patinhas aceita doações?</h3>
-              <img src="../static/img/arrow-down.svg" alt="Ícone de seta para baixo">
-              <p class="paragrafo">
-                Sim, a Ont das Patinhas aceita doações de alimentos, medicamentos, cobertores e itens de higiene para os animais. Também é possível fazer doações financeiras para apoiar nossos projetos de resgate e cuidado dos animais. Cada contribuição faz uma grande diferença!
-              </p>
-            </div>
-            <div class="duvida">
-              <h3>Como posso me voluntariar na Ont das Patinhas?</h3>
-              <img src="../static/img/arrow-down.svg" alt="Ícone de seta para baixo">
-              <p class="paragrafo">
-                Se você deseja fazer parte da nossa equipe de voluntários, pode se inscrever através do nosso site ou comparecer a uma de nossas reuniões de voluntariado. Temos diversas formas de contribuição, como ajudar nos cuidados diários dos animais, participar de eventos de adoção e colaborar em campanhas de arrecadação.
-              </p>
-            </div>
-          </div>
         </section>
-        
     </main>
+
     <footer>
         <div>
-          <img src="../static/img/logo.png" alt="PetLife">
-          <p>Cuidando com amor, vivendo com alegria: PetLife, onde a vida dos pets é mais feliz!</p>
+            <img th:src="@{/img/logo.png}" alt="ONG Patinhas">
         </div>
         <div>
-          <strong class="titulo">Links rápidos</strong>
-          <a href="index.html">Início</a>
-          <a href="quemSomos.html">Quem somos</a>
-          <a href="doacao.html">Doação</a>
-          <a href="adocao.html">Adoção</a>
-      </div>
-        <div>
-          <strong class="titulo">Encontre-nos</strong>
-          <p>WhatsApp: (97) 98417-3223</p>
-          <p>Email: contato@petlife.com.br</p>
-          <p>Endereço: Av. 7 de Setembro, nº 42, Centro</p>
+            <strong class="titulo">Encontre-nos</strong>
+            <p>WhatsApp: (97) 99999-9900</p>
+            <p>Email: contato@petlife.com.br</p>
+            <p>Endereço: Av. 7 de Setembro, nº 42, Centro</p>
         </div>
-      </footer>
+    </footer>
 </body>
-
 </html>
