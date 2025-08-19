@@ -4,37 +4,22 @@ on:
   push:
     branches: ["**"]
   pull_request:
-    branches: ["**"]
+    branches: ["main"]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
-#    services:
-#      mysql:
-#        image: mysql:8
-#        ports:
-#          - 3306:3306
-#        env:
-#          MYSQL_ROOT_PASSWORD: root
-#          MYSQL_DATABASE: testdb
-#        options: >-
-#          --health-cmd="mysqladmin ping -h 127.0.0.1 -proot"
-#          --health-interval=10s
-#          --health-timeout=5s
-#          --health-retries=3
-
     steps:
       - name: Checkout do código
         uses: actions/checkout@v3
 
-      - name: Set up JDK 21
+      - name: Configurar JDK 21
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Cache Maven packages
+      - name: Cachear pacotes Maven
         uses: actions/cache@v3
         with:
           path: ~/.m2/repository
@@ -42,21 +27,39 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-#      - name: Esperar o MySQL inicializar
-#        run: sleep 90
-
-      - name: Run tests with Maven
+      - name: Executar testes com Maven
         env:
           MP_ACCESS_TOKEN: ${{ secrets.MP_ACCESS_TOKEN}}
           MP_PUBLIC_KEY: ${{ secrets.MP_PUBLIC_KEY}}
         run: mvn --batch-mode test -Dspring.profiles.active=test
 
+  build:
+    if: github.ref == 'refs/heads/main' || github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
 
-      - name: Build with Maven
+      - name: Configurar JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Cachear pacotes Maven
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Construir projeto com Maven
         env:
           SPRING_DATASOURCE_URL: ${{ secrets.DATABASE_URL}}
           SPRING_DATASOURCE_USERNAME: ${{ secrets.DATABASE_USERNAME}}
-          SPRING_DATASOURCE_PASSWORD: ${{ secrets.DATABASE_PASSWORD}} #asd
+          SPRING_DATASOURCE_PASSWORD: ${{ secrets.DATABASE_PASSWORD}}
         run: mvn clean package -DskipTests
 
       - name: Login no Docker Hub
@@ -65,10 +68,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build da imagem Docker (multi-stage)
+      - name: Construir imagem Docker (multi-stage)
         run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/ong-patinhas-app .
 
-      - name: Push da imagem para o Docker Hub
+      - name: Enviar imagem para o Docker Hub
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/ong-patinhas-app
 
       - name: Atualizar arquivo .env no servidor e executar deploy
@@ -88,4 +91,3 @@ jobs:
             DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}
             EOF
             sudo ./deploy.sh
-
