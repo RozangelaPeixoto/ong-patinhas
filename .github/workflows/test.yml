@@ -27,7 +27,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
+<<<<<<< HEAD:.github/workflows/test.yml
       - name: Executar testes com Maven
+=======
+#      - name: Esperar o MySQL inicializar
+#        run: sleep 90
+
+      - name: Run tests with Maven
+>>>>>>> main:.github/workflows/teste.yml
         env:
           MP_ACCESS_TOKEN: ${{ secrets.MP_ACCESS_TOKEN}}
           MP_PUBLIC_KEY: ${{ secrets.MP_PUBLIC_KEY}}

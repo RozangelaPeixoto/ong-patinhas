@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONG Das Patinhas - Adoção de Cachorros</title>
+    <meta name="description" content="Encontre seu novo amigo de quatro patas na ONG Das Patinhas. Veja os cães disponíveis para adoção com fotos, raça, idade e habilidades.">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../static/img/logo-factoring.png" type="image/x-icon">
+    <script th:src="@{/js/redirect.js}" defer></script>
+</head>
+
+<body>
+    <header> 
+        <a href="index.html">
+            <img src="../static/img/logo.png" alt="ONG Das Patinhas" width="300" height="80">
+        </a>
+        <nav>
+            <a th:href="@{/}">Início</a>
+            <a th:href="@{/doacao}">Doação</a>
+            <a th:href="@{/adocao}">Adoção</a>
+            <a th:href="@{/quemsomos}">Quem Somos</a>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+          <h3>Status da Doação: <span th:text="${status}"></span></h3>
+          <p th:text="${message}"></p>
+        </article>
+        <p>Você será redirecionado para a página principal em <span id="contador">5</span> segundos...</p>
+    </main>
+
+    <footer>
+        <div>
+            <img src="../static/img/logo.png" alt="ONG Das Patinhas">
+            <p>Cuidando com amor, vivendo com alegria: ONG Das Patinhas, onde a vida dos pets é mais feliz!</p>
+        </div>
+        <div>
+            <strong class="titulo">Links rápidos</strong>
+            <a th:href="@{/}">Início</a>
+            <a th:href="@{/doacao}">Doação</a>
+            <a th:href="@{/adocao}">Adoção</a>
+            <a th:href="@{/quemsomos}">Quem Somos</a>
+        </div>
+        <div>
+            <strong class="titulo">Encontre-nos</strong>
+            <p>WhatsApp: (97) 98417-3223</p>
+            <p>Email: contato@daspatinhas.org.br</p>
+            <p>Endereço: Av. 7 de Setembro, nº 42, Centro</p>
+        </div>
+    </footer>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
