@@ -16,8 +16,8 @@ spring:
     access-token: ${MP_ACCESS_TOKEN}
     public-key: ${MP_PUBLIC_KEY}
     success:
-      url: https://portfolio-azure-nine-95.vercel.app/success
+      url: https://ong-patinhas.ddns.net/success
     pending:
-      url: https://portfolio-azure-nine-95.vercel.app/pending
+      url: https://ong-patinhas.ddns.net/pending
     failure:
-      url: https://portfolio-azure-nine-95.vercel.app/failure
+      url: https://ong-patinhas.ddns.net/failure
