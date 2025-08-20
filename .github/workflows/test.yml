@@ -1,10 +1,11 @@
 name: Build and Test Spring App
 
+
 on:
   push:
-    branches: ["**"]
+    branches: ["**"]           # qualquer push → roda teste
   pull_request:
-    branches: ["main"]
+    branches: ["main"]         # PR para main → teste + build
 
 jobs:
   test:
@@ -29,14 +30,14 @@ jobs:
 
       - name: Executar testes com Maven
         env:
-          MP_ACCESS_TOKEN: ${{ secrets.MP_ACCESS_TOKEN}}
-          MP_PUBLIC_KEY: ${{ secrets.MP_PUBLIC_KEY}}
+          MP_ACCESS_TOKEN: ${{ secrets.MP_ACCESS_TOKEN }}
+          MP_PUBLIC_KEY: ${{ secrets.MP_PUBLIC_KEY }}
         run: mvn --batch-mode test -Dspring.profiles.active=test
 
   build:
-    if: github.ref == 'refs/heads/main' || github.event.pull_request.base.ref == 'main'
     runs-on: ubuntu-latest
     needs: test
+    if: github.ref == 'refs/heads/main' || github.event.pull_request.base.ref == 'main'
     steps:
       - name: Checkout do código
         uses: actions/checkout@v3
@@ -57,9 +58,9 @@ jobs:
 
       - name: Construir projeto com Maven
         env:
-          SPRING_DATASOURCE_URL: ${{ secrets.DATABASE_URL}}
-          SPRING_DATASOURCE_USERNAME: ${{ secrets.DATABASE_USERNAME}}
-          SPRING_DATASOURCE_PASSWORD: ${{ secrets.DATABASE_PASSWORD}}
+          SPRING_DATASOURCE_URL: ${{ secrets.DATABASE_URL }}
+          SPRING_DATASOURCE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+          SPRING_DATASOURCE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
         run: mvn clean package -DskipTests
 
       - name: Login no Docker Hub
@@ -74,6 +75,11 @@ jobs:
       - name: Enviar imagem para o Docker Hub
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/ong-patinhas-app
 
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'   # 👈 garante que só deploya na main (após merge)
+    steps:
       - name: Atualizar arquivo .env no servidor e executar deploy
         uses: appleboy/ssh-action@v0.1.7
         with:
