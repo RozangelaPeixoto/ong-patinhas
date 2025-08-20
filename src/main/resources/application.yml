@@ -16,8 +16,8 @@ spring:
     access-token: ${MP_ACCESS_TOKEN}
     public-key: ${MP_PUBLIC_KEY}
     success:
-      url: https://ong-patinhas.ddns.net/success
+      url: https://ong-patinhas.ddns.net/sucesso
     pending:
-      url: https://ong-patinhas.ddns.net/pending
+      url: https://ong-patinhas.ddns.net/pendente
     failure:
-      url: https://ong-patinhas.ddns.net/failure
+      url: https://ong-patinhas.ddns.net/cancelado
