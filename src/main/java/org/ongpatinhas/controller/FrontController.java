@@ -74,9 +74,21 @@ public class FrontController {
     }
 
     @GetMapping("/formulario-adocao")
-    public String formAdoption(@ModelAttribute("adoptionInterest") AdoptionInterestDTO adoptionInterestDTO,
+    public String formAdoption(@ModelAttribute("adoptionInterest") AdoptionInterestDTO adoptionInterestDTO){
+        return "formulario-adocao";
+    }
+
+    @PostMapping("/formulario-adocao")
+    public String createAdoptionInterest(@Valid @ModelAttribute("adoptionInterest") AdoptionInterestDTO adoptionInterestDTO,
                                BindingResult result,
                                Model model){
+
+        if (result.hasErrors()) {
+            return "formulario-adocao";
+        }
+
+        System.out.println(adoptionInterestDTO);
+        model.addAttribute("successMessage", "Mensagem enviada com sucesso!");
         return "formulario-adocao";
     }
 
