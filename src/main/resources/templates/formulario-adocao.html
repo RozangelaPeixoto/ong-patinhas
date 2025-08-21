@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adoption Form</title>
+</head>
+<body>
+<h1>Adoption Application</h1>
+
+<form th:action="@{/adoption/submit}" th:object="${adoptionInterest}" method="post">
+
+    <label for="fullName">Nome Completo:</label>
+    <input type="text" id="fullName" th:field="*{fullName}" required />
+
+    <label for="isAdult">Você é maior de idade?</label>
+    <input type="checkbox" id="isAdult" th:field="*{isAdult}" />
+
+    <label for="phone">Telefone:</label>
+    <input type="text" id="phone" th:field="*{phone}" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" th:field="*{email}" required />
+
+    <label for="petName">Nome do Animal:</label>
+    <input type="text" id="petName" th:field="*{petName}" required />
+
+    <label for="hadPetsBefore">Já teve animais antes?</label>
+    <input type="checkbox" id="hadPetsBefore" th:field="*{hadPetsBefore}" />
+
+    <label for="currentlyHasPets">Possui outros animais atualmente?</label>
+    <input type="checkbox" id="currentlyHasPets" th:field="*{currentlyHasPets}" />
+
+    <label for="adoptionReason">Por que deseja adotar?</label>
+    <textarea id="adoptionReason" th:field="*{adoptionReason}" rows="4"></textarea>
+
+    <button type="submit">Enviar</button>
+</form>
+
+</body>
+</html>
