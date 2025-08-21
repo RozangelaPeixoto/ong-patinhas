@@ -92,6 +92,7 @@ public class MercadoPagoService {
                 .backUrls(backUrls)
                 .autoReturn("all")
                 .externalReference(uuid)
+                .statementDescriptor("Ong Patinhas")
                 .build();
     }
 
