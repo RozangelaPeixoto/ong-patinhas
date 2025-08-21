@@ -36,7 +36,7 @@ public class AdoptionInterest {
     private String petName;
 
     @Column(name = "had_pets_before")
-    private Boolean hasPetsBefore;
+    private Boolean hadPetsBefore;
 
     @Column(name = "currently_has_pets")
     private Boolean currentlyHasPets;

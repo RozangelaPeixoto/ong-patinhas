@@ -2,6 +2,7 @@ package org.ongpatinhas.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
+import org.ongpatinhas.dto.AdoptionInterestDTO;
 import org.ongpatinhas.dto.DonationDTO;
 import org.ongpatinhas.service.MercadoPagoService;
 import org.springframework.stereotype.Controller;
@@ -70,6 +71,13 @@ public class FrontController {
         model.addAttribute("message", message);
 
         return "retorno-pagamento";
+    }
+
+    @GetMapping("/formulario-adocao")
+    public String formAdoption(@ModelAttribute("adoptionInterest") AdoptionInterestDTO adoptionInterestDTO,
+                               BindingResult result,
+                               Model model){
+        return "formulario-adocao";
     }
 
 }
