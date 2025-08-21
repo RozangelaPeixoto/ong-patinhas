@@ -1,4 +1,4 @@
-CREATE TABLE adoption_interest (
+CREATE TABLE tb_adoption_interest (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
     is_adult BOOLEAN NOT NULL,

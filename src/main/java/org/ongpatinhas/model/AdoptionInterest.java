@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "adoption_interest")
+@Table(name = "tb_adoption_interest")
 public class AdoptionInterest {
 
     @Id
@@ -45,6 +45,6 @@ public class AdoptionInterest {
     private String adoptionReason;
 
     @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
 
 }
