@@ -1,5 +1,6 @@
 package org.ongpatinhas.dto;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -30,5 +31,10 @@ public record AdoptionInterestDTO(
         Boolean currentlyHasPets,
 
         @NotBlank(message = "Por favor, insira um motivo para querer adotar")
-        String adoptionReason) {
+        String adoptionReason){
+
+    public AdoptionInterestDTO() {
+        this("",false , "", "", "", false, false, "");
+
+    }
 }

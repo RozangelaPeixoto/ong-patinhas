@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.ongpatinhas.dto.AdoptionInterestDTO;
 import org.ongpatinhas.dto.DonationDTO;
+import org.ongpatinhas.service.AdoptionInterestService;
 import org.ongpatinhas.service.MercadoPagoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +17,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class FrontController {
 
     private final MercadoPagoService mercadoPagoService;
+    private final AdoptionInterestService adoptionInterestService;
 
-    public FrontController(MercadoPagoService mercadoPagoService) {
+    public FrontController(MercadoPagoService mercadoPagoService, AdoptionInterestService adoptionInterestService) {
         this.mercadoPagoService = mercadoPagoService;
+        this.adoptionInterestService = adoptionInterestService;
     }
 
     @GetMapping("/")
@@ -87,8 +90,10 @@ public class FrontController {
             return "formulario-adocao";
         }
 
-        System.out.println(adoptionInterestDTO);
+        adoptionInterestService.createAdoptionInterest(adoptionInterestDTO);
         model.addAttribute("successMessage", "Mensagem enviada com sucesso!");
+        model.addAttribute("adoptionInterest", new AdoptionInterestDTO());
+
         return "formulario-adocao";
     }
 
