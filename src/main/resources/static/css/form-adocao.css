@@ -90,6 +90,12 @@ textarea {
     resize: vertical;
 }
 
+.g-recaptcha{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
 button {
     width: 100%;
     background-color: #017474;
