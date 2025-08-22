@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import org.ongpatinhas.dto.AdoptionInterestDTO;
 import org.ongpatinhas.dto.DonationDTO;
 import org.ongpatinhas.service.AdoptionInterestService;
+import org.ongpatinhas.service.CaptchaService;
 import org.ongpatinhas.service.MercadoPagoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,16 +13,19 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class FrontController {
 
     private final MercadoPagoService mercadoPagoService;
     private final AdoptionInterestService adoptionInterestService;
+    private final CaptchaService captchaService;
 
-    public FrontController(MercadoPagoService mercadoPagoService, AdoptionInterestService adoptionInterestService) {
+    public FrontController(MercadoPagoService mercadoPagoService, AdoptionInterestService adoptionInterestService, CaptchaService captchaService) {
         this.mercadoPagoService = mercadoPagoService;
         this.adoptionInterestService = adoptionInterestService;
+        this.captchaService = captchaService;
     }
 
     @GetMapping("/")
@@ -84,9 +88,12 @@ public class FrontController {
     @PostMapping("/formulario-adocao")
     public String createAdoptionInterest(@Valid @ModelAttribute("adoptionInterest") AdoptionInterestDTO adoptionInterestDTO,
                                BindingResult result,
-                               Model model){
+                               Model model,
+                               @RequestParam("g-recaptcha-response") String captchaResponse){
+        boolean captchaValido = captchaService.validateCaptcha(captchaResponse);
 
-        if (result.hasErrors()) {
+        if (result.hasErrors() || !captchaValido) {
+            if(!captchaValido) model.addAttribute("errorCaptcha", "Preencha o captcha");
             return "formulario-adocao";
         }
 

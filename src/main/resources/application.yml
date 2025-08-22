@@ -21,3 +21,5 @@ spring:
       url: https://portfolio-azure-nine-95.vercel.app/pending
     failure:
       url: https://portfolio-azure-nine-95.vercel.app/failure
+  captcha:
+    secret-key: ${RC_SECRET_KEY}
