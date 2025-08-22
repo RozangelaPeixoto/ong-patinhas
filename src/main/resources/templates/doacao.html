@@ -18,7 +18,7 @@
     
     <header> 
         <a href="index.html">
-            <img src="../static/img/logo.png" alt="ONG Das Patinhas" width="300" height="80">
+           <img th:src="@{/img/logo.png}" alt="ONG Das Patinhas" width="300" height="80">
         </a>
         <nav>
             <a th:href="@{/}">Início</a>
@@ -54,16 +54,9 @@
 
     <footer>
         <div>
-            <img src="../static/img/logo.png" alt="ONG Das Patinhas">
-            <p>Cuidando com amor, vivendo com alegria: ONG Das Patinhas, onde a vida dos pets é mais feliz!</p>
+           <img th:src="@{/img/logo.png}" alt="ONG Patinhas">
         </div>
-        <div>
-            <strong class="titulo">Links rápidos</strong>
-            <a href="index.html">Início</a>
-            <a href="quemsomos.html">Quem somos</a>
-            <a href="doacao.html">Doação</a>
-            <a href="adocao.html">Adoção</a>
-        </div>
+        
         <div>
             <strong class="titulo">Encontre-nos</strong>
             <p>WhatsApp: (97) 98417-3223</p>
