@@ -1,0 +1,10 @@
+CREATE TABLE tb_dogs (
+    id VARCHAR(36) NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    breed VARCHAR(500) NOT NULL,
+    age VARCHAR(10) NOT NULL,
+    skills TEXT,
+    image VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
