@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class DonationController {
@@ -31,9 +32,13 @@ public class DonationController {
     @PostMapping("/doacao")
     public String checkout(@Valid @ModelAttribute("donation") DonationDTO donationDTO,
                            BindingResult result,
-                           Model model) {
+                           Model model,
+                           @RequestParam("g-recaptcha-response") String captchaResponse) {
 
-        if (result.hasErrors()) {
+        boolean captchaValido = captchaService.validateCaptcha(captchaResponse);
+
+        if (result.hasErrors() || !captchaValido) {
+            if(!captchaValido) model.addAttribute("errorCaptcha", "Preencha o captcha");
             return "doacao";
         }
 

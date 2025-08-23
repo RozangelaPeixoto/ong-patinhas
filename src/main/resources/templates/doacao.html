@@ -8,6 +8,7 @@
     <meta name="description" content="Contribua para a ONG Das Patinhas com doações via Pix ou transferência bancária. Ajude-nos a continuar nosso trabalho com animais abandonados.">
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="stylesheet" th:href="@{/css/doacao.css}">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
@@ -43,6 +44,8 @@
                         <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
                         <input type="number" th:field="*{value}" step="1.00" placeholder="Valor da Doação"/>
                         <span th:if="${#fields.hasErrors('value')}" th:errors="*{value}"></span>
+                        <div class="g-recaptcha" data-sitekey="6LeXbaorAAAAACdjA5M2fXU4xsJMfGFHytsTOvLu"></div>
+                        <span th:if="${errorCaptcha}" th:text="${errorCaptcha}"></span>
                         <button type="submit">Enviar Doação</button>
                     </form>
                 </div>
