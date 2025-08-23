@@ -1,6 +1,7 @@
 package org.ongpatinhas.service;
 
 
+import org.ongpatinhas.dto.CaptchaResponseDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -22,11 +23,11 @@ public class CaptchaService {
 
         String url = VERIFY_URL + "?secret=" + secretKey + "&response=" + captchaResponse;
 
-        ResponseEntity<Map> response = restTemplate.postForEntity(url, null, Map.class);
+        ResponseEntity<CaptchaResponseDTO> response = restTemplate.postForEntity(url, null, CaptchaResponseDTO.class);
 
-        Map body = response.getBody();
+        CaptchaResponseDTO body = response.getBody();
 
-        return body != null && (Boolean) body.get("success");
+        return body != null && body.isSuccess();
     }
 
 }
