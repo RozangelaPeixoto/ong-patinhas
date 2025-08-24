@@ -1,4 +1,4 @@
-INSERT INTO ongpatinhas.tb_dogs (id, name, breed, age, skills, image) VALUES
+INSERT INTO tb_dogs (id, name, breed, age, skills, image) VALUES
 (UUID(), 'Rex', 'Labrador', '2 anos', 'Amigável com crianças, adora brincar de bola e é muito obediente', 'cachorro1.jpeg'),
 (UUID(), 'Bella', 'Lulu da Pomerânia', '1 ano', 'Companheira e carinhosa, late quando estranhos se aproximam', 'cachorro2.jpeg'),
 (UUID(), 'Max', 'Cavalier', '3 anos', 'Calmo, gosta de colo e se adapta bem em apartamentos', 'cachorro3.jpeg'),
