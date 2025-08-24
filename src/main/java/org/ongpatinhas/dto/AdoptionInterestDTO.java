@@ -23,17 +23,16 @@ public record AdoptionInterestDTO(
         @NotBlank(message = "O e-mail é obrigatório")
         String email,
 
-        @NotBlank(message = "O nome do animal é obrigatório")
-        String petName,
-
         Boolean hadPetsBefore,
         Boolean currentlyHasPets,
 
         @NotBlank(message = "Por favor, insira um motivo para querer adotar")
-        String adoptionReason){
+        String adoptionReason,
+
+        String dogId) {
 
     public AdoptionInterestDTO() {
-        this("",false , "", "", "", false, false, "");
+        this("",false , "", "", false, false, "", "");
 
     }
 }
