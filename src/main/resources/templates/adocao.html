@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONG Das Patinhas - Adoção de Cachorros</title>
-    <meta name="description" content="Encontre seu novo amigo de quatro patas na ONG Das Patinhas. Veja os cães disponíveis para adoção com fotos, raça, idade e habilidades.">
+    <meta name="description"
+          content="Encontre seu novo amigo de quatro patas na ONG Das Patinhas. Veja os cães disponíveis para adoção com fotos, raça, idade e habilidades.">
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,186 +16,52 @@
 </head>
 
 <body>
-    <header> 
-        <a href="index.html">
+<header>
+    <a href="index.html">
         <img th:src="@{/img/logo.png}" alt="ONG Das Patinhas" width="300" height="80">
-        </a>
-        <nav>
-            <a th:href="@{/}">Início</a>
-            <a th:href="@{/doacao}">Doação</a>
-            <a th:href="@{/adocao}">Adoção</a>
-            <a th:href="@{/quemsomos}">Quem Somos</a>
-        </nav>
-    </header>
+    </a>
+    <nav>
+        <a th:href="@{/}">Início</a>
+        <a th:href="@{/doacao}">Doação</a>
+        <a th:href="@{/adocao}">Adoção</a>
+        <a th:href="@{/quemsomos}">Quem Somos</a>
+    </nav>
+</header>
 
-    <main>
-        <section id="adoção">
-            <h1>Cães Disponíveis para Adoção</h1>
-            <p class="paragrafo">Conheça nossos adoráveis cães que estão esperando por um lar amoroso. Cada um deles tem uma história única e habilidades especiais. Se você está procurando um novo amigo de quatro patas, dê uma olhada em nossas opções abaixo!</p>
-            
-            <div class="cachorros">
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro20.jpeg}" alt="Cachorro 1">
-                    <h2>Rex</h2>
-                    <p><strong>Raça:</strong> Labrador</p>
-                    <p><strong>Idade:</strong> 2 anos</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" th:href="@{/formulario-adocao/57b67883-806b-11f0-a0ae-706979abc335}" >Quero Adotar</a>
-                </div>
+<main>
+    <section id="adoção">
+        <h1>Cães Disponíveis para Adoção</h1>
+        <p class="paragrafo">Conheça nossos adoráveis cães que estão esperando por um lar amoroso. Cada um deles tem uma
+            história única e habilidades especiais. Se você está procurando um novo amigo de quatro patas, dê uma olhada
+            em nossas opções abaixo!</p>
 
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro21.jpeg}" alt="Cachorro 2">
-                    <h2>Bella</h2>
-                    <p><strong>Raça:</strong> Lula da Pomerania</p>
-                    <p><strong>Idade:</strong> 1 ano</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
+        <div class="cachorros">
+            <div class="cachorro" th:each="dog : ${dogs}">
+                <img th:src="@{'/img/adocao/' + ${dog.image}}" th:alt="'Foto ' + ${dog.name}">
+                <h2 th:text="${dog.name}"></h2>
+                <div class="cachorro_info">
+                    <p><strong>Raça:</strong> <span th:text="${dog.breed}"></span></p>
+                    <p><strong>Idade:</strong> <span th:text="${dog.age}"></span></p>
+                    <p><strong>Habilidades:</strong> <span th:text="${dog.skills}"></span></p>
                 </div>
-
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro22.jpeg}" alt="Cachorro 3">
-                    <h2>Max</h2>
-                    <p><strong>Raça:</strong> Cavalier </p>
-                    <p><strong>Idade:</strong> 3 anos</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div>
-
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro23.jpeg}" alt="Cachorro 4">
-                    <h2>Luna</h2>
-                    <p><strong>Raça:</strong> Lulu Pomerania</p>
-                    <p><strong>Idade:</strong> 4 anos</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div>
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro24.jpeg}" alt="Cachorro 5">
-                    <h2>Thor</h2>
-                    <p><strong>Raça:</strong> Dog Bordô</p>
-                    <p><strong>Idade:</strong> 6 anos</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div>
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro25.jpeg}" alt="Cachorro 6">
-                    <h2>Freed</h2>
-                    <p><strong>Raça:</strong> Golden Retriver</p>
-                    <p><strong>Idade:</strong> 2 anos</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div>
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro26.jpeg}" alt="Cachorro 7">
-                    <h2>Amadeu</h2>
-                    <p><strong>Raça:</strong> Rotweiler</p>
-                    <p><strong>Idade:</strong> 2 anos</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div>
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro27.jpeg}" alt="Cachorro 8">
-                    <h2>toto</h2>
-                    <p><strong>Raça:</strong> Vira lata</p>
-                    <p><strong>Idade:</strong> 4 meses</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div>
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro28.jpeg}" alt="Cachorro 9">
-                    <h2>red</h2>
-                    <p><strong>Raça:</strong> Shitzu</p>
-                    <p><strong>Idade:</strong> 1 mês</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div>
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro29.jpeg}" alt="Cachorro 10">
-                    <h2>pit</h2>
-                    <p><strong>Raça:</strong> Bichon Freze</p>
-                    <p><strong>Idade:</strong> 1 ano</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div>
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro30.jpeg}" alt="Cachorro 11">
-                    <h2>donatelo</h2>
-                    <p><strong>Raça:</strong> Berneze MaltDog</p>
-                    <p><strong>Idade:</strong> 5 anos</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div>
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro31.jpeg}" alt="Cachorro 12">
-                    <h2>vegeta</h2>
-                    <p><strong>Raça:</strong> YorkShire</p>
-                    <p><strong>Idade:</strong> 8 meses</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div>
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro32.jpeg}" alt="Cachorro 13">
-                    <h2>kakaroto</h2>
-                    <p><strong>Raça:</strong> Lulu Pomerania</p>
-                    <p><strong>Idade:</strong> 8 meses</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div>
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro33.jpeg}" alt="Cachorro 14">
-                    <h2>buma</h2>
-                    <p><strong>Raça:</strong> Maltez </p>
-                    <p><strong>Idade:</strong> 8 meses</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div>
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro34.jpeg}" alt="Cachorro 15">
-                    <h2>tony</h2>
-                    <p><strong>Raça:</strong> Border Koly </p>
-                    <p><strong>Idade:</strong> 1 ano</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div>
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro35.jpeg}" alt="Cachorro 16">
-                    <h2>kali</h2>
-                    <p><strong>Raça:</strong> Vira lata</p>
-                    <p><strong>Idade:</strong> 1 ano</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div>
-                <div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro36.jpeg}" alt="Cachorro 17">
-                    <h2>dolar</h2>
-                    <p><strong>Raça:</strong> Lulu da Pomerania</p>
-                    <p><strong>Idade:</strong> 1 ano</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div><div class="cachorro">
-            <img th:src="@{/img/adocao/cachorro37.jpeg}" alt="Cachorro 18">
-                    <h2>jorge</h2>
-                    <p><strong>Raça:</strong> Shiwawa</p>
-                    <p><strong>Idade:</strong> 1 ano</p>
-                    <p><strong>Habilidades:</strong> Amigável com crianças, ótimo para corridas</p>
-                    <a class="botao" href="javascript:void(0);" >Quero Adotar</a>
-                </div>
+                <a class="botao" th:href="@{/formulario-adocao/{id}(id=${dog.id})}">Quero Adotar</a>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <footer>
-        
-        <div>
+<footer>
+
+    <div>
         <img th:src="@{/img/logo.png}" alt="ONG Das Patinhas">
-        </div>
-        <div>
-            <strong class="titulo">Encontre-nos</strong>
-            <p>WhatsApp: (97) 98417-3223</p>
-            <p>Email: contato@daspatinhas.org.br</p>
-            <p>Endereço: Av. 7 de Setembro, nº 42, Centro</p>
-        </div>
-    </footer>
+    </div>
+    <div>
+        <strong class="titulo">Encontre-nos</strong>
+        <p>WhatsApp: (97) 98417-3223</p>
+        <p>Email: contato@daspatinhas.org.br</p>
+        <p>Endereço: Av. 7 de Setembro, nº 42, Centro</p>
+    </div>
+</footer>
 
 </body>
 
