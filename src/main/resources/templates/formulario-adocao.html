@@ -30,7 +30,7 @@
 </header>
 <h1>Formulário de Adoção</h1>
 
-<article class="selected_dog">
+<article class="selected_dog" th:if="${dog != null}">
     <div>
         <img th:src="@{'/img/adocao/' + ${dog.image}}" alt="Foto do cachorro">
     </div>
