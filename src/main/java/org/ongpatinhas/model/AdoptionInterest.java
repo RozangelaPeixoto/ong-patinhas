@@ -5,13 +5,14 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
-
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@ToString
 @Entity
 @Table(name = "tb_adoption_interest")
 public class AdoptionInterest {
@@ -32,9 +33,6 @@ public class AdoptionInterest {
     @Column(nullable = false, length = 100)
     private String email;
 
-    @Column(name = "pet_name", nullable = false, length = 100)
-    private String petName;
-
     @Column(name = "had_pets_before")
     private Boolean hadPetsBefore;
 
@@ -46,5 +44,9 @@ public class AdoptionInterest {
 
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
+
+    @ManyToOne
+    @JoinColumn(name = "dog_id", nullable = false)
+    private Dog dog;
 
 }
