@@ -32,8 +32,9 @@ public class AdoptionInterestService {
         return dogService.findDogById(id);
     }
 
-    private void saveAdoptionInterest(AdoptionInterest adoptionInterest){
-        adoptionInterestRepository.save(adoptionInterest);
+    AdoptionInterest saveAdoptionInterest(AdoptionInterest adoptionInterest){
+       return adoptionInterestRepository.save(adoptionInterest);
+
     }
 
 }
