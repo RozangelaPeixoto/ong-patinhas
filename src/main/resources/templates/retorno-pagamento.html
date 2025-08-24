@@ -17,7 +17,7 @@
 <body>
     <header> 
         <a href="index.html">
-            <img src="../static/img/logo.png" alt="ONG Das Patinhas" width="300" height="80">
+            <img th:src="@{/img/logo.png}" alt="ONG Das Patinhas" width="300" height="80">
         </a>
         <nav>
             <a th:href="@{/}">Início</a>
@@ -33,20 +33,13 @@
           <p th:text="${message}"></p>
         </article>
         <p>Você será redirecionado para a página principal em <span id="contador">5</span> segundos...</p>
+        <canvas id="confete"></canvas>
     </main>
-
     <footer>
         <div>
-            <img src="../static/img/logo.png" alt="ONG Das Patinhas">
-            <p>Cuidando com amor, vivendo com alegria: ONG Das Patinhas, onde a vida dos pets é mais feliz!</p>
+           <img th:src="@{/img/logo.png}" alt="ONG Patinhas">
         </div>
-        <div>
-            <strong class="titulo">Links rápidos</strong>
-            <a th:href="@{/}">Início</a>
-            <a th:href="@{/doacao}">Doação</a>
-            <a th:href="@{/adocao}">Adoção</a>
-            <a th:href="@{/quemsomos}">Quem Somos</a>
-        </div>
+       
         <div>
             <strong class="titulo">Encontre-nos</strong>
             <p>WhatsApp: (97) 98417-3223</p>
@@ -54,10 +47,7 @@
             <p>Endereço: Av. 7 de Setembro, nº 42, Centro</p>
         </div>
     </footer>
-
-    <script>
-
-    </script>
+    
 </body>
 
 </html>
