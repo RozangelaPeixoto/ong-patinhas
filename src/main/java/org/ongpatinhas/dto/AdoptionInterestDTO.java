@@ -1,10 +1,13 @@
 package org.ongpatinhas.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public record AdoptionInterestDTO(
         @NotBlank(message = "O nome é obrigatório")
         String fullName,
