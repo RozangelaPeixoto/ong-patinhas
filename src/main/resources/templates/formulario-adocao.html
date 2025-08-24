@@ -30,6 +30,18 @@
 </header>
 <h1>Formulário de Adoção</h1>
 
+<article class="selected_dog">
+    <div>
+        <img th:src="@{'/img/adocao/' + ${dog.image}}" alt="Foto do cachorro">
+    </div>
+    <div>
+        <p><b>Nome:</b> <span th:text="${dog.name}"></span></p>
+        <p><b>Raça:</b> <span th:text="${dog.breed}"></span></p>
+        <p><b>Idade:</b> <span th:text="${dog.age}"></span></p>
+        <p><b>Habilidades:</b> <span th:text="${dog.skills}"></span></p>
+    </div>
+</article>
+
 <form th:action="@{/formulario-adocao}" th:object="${adoptionInterest}" method="post">
 
     <label for="fullName">Nome Completo:</label>
@@ -52,10 +64,6 @@
     <input type="email" id="email" th:field="*{email}" required />
     <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
 
-    <label for="petName">Nome do Animal:</label>
-    <input type="text" id="petName" th:field="*{petName}" required />
-    <span th:if="${#fields.hasErrors('petName')}" th:errors="*{petName}"></span>
-
     <label for="hadPetsBefore">Já teve animais antes?</label>
     <label class="switch">
         <input type="checkbox" id="hadPetsBefore" th:field="*{hadPetsBefore}" />
@@ -73,6 +81,8 @@
 
     <div class="g-recaptcha" data-sitekey="6LeXbaorAAAAACdjA5M2fXU4xsJMfGFHytsTOvLu"></div>
     <span th:if="${errorCaptcha}" th:text="${errorCaptcha}"></span>
+
+    <input type="hidden" id="dog_id" name="dogId" th:value="${dog.id}" />
 
     <button type="submit">Enviar</button>
     <div th:if="${successMessage}" class="success-message">

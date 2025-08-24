@@ -1,3 +1,19 @@
+.selected_dog{
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    margin: auto;
+    gap: 16px;
+    padding: 16px;
+    border: 2px dotted #017474;
+    border-radius: 16px;
+}
+
+.selected_dog img{
+    width: 150px;
+    border-radius: 16px;
+}
+
 form {
     max-width: 500px;
     margin: 40px auto;
