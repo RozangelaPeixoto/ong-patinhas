@@ -1,6 +1,8 @@
 package org.ongpatinhas.service;
 
 import org.ongpatinhas.dto.DogDTO;
+import org.ongpatinhas.mapper.DogMapper;
+import org.ongpatinhas.mapper.DonationMapper;
 import org.ongpatinhas.model.Dog;
 import org.ongpatinhas.repository.DogRepository;
 import org.springframework.stereotype.Service;
@@ -18,9 +20,7 @@ public class DogService {
         Dog dog = dogRepository.findById(id).orElse(null);
 
         if(dog == null) return null;
-        DogDTO dogDTO = new DogDTO(dog.getId(), dog.getName(), dog.getBreed(), dog.getAge(), dog.getSkills(), dog.getImage());
-
-        return dogDTO;
+        return DogMapper.toDto(dog);
     }
 
     public Dog findDogById(String id){
