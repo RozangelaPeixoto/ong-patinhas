@@ -37,12 +37,23 @@
      width: 100%;
      padding: 12px;
      margin-bottom: 16px;
-     border: 1px solid #ddd;
+     border: 1px solid #017474;
      border-radius: 8px;
  }
 
+.formulario-doacao input {
+    color: red;
+}
+
+
+.formulario-doacao input::placeholder {
+    color: red;
+}
+
+
+
  .formulario-doacao button {
-     background-color: #02ebf7;
+     background-color: #017474;
      color: #fff;
      border: none;
      cursor: pointer;
@@ -51,7 +62,7 @@
  }
 
  .formulario-doacao button:hover {
-     background-color: #0191c8;
+     background-color: #477474;
  }
 
  .informacoes {
