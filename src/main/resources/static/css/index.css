@@ -602,3 +602,158 @@ footer p a {
         margin-bottom: 20px;
     }
 }
+/*Front j*/
+:root{
+  --brand: #017474;   
+  --brand-dark: #005e5e;
+  --brand-light: #00a1a1;
+  --bg: #ffffff; 
+  --text: #022b2b;
+  --muted: #466969;
+  --white: #ffffff;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg); 
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+main{
+  min-height: 75vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: transparent; 
+  position: relative;
+  overflow: hidden;
+}
+
+
+main > article{
+  width: min(640px, 92vw);
+  background: linear-gradient(145deg, rgba(255,255,255,0.96), rgba(255,255,255,0.90));
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow:
+    0 10px 25px -8px rgba(1,116,116,0.35),
+    0 0 0 2px rgba(1,116,116,0.15) inset;
+  position: relative;
+  animation: fadeInUp .8s ease both;
+}
+
+
+main > article::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-light));
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+
+main h3{
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  margin: 0 0 .5rem 0;
+  font-weight: 700;
+  color: var(--brand-dark);
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+
+main h3::before{
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff, transparent 70%),
+              linear-gradient(135deg, var(--brand), var(--brand-light));
+  box-shadow: 0 0 0 6px rgba(1,116,116,.2);
+}
+
+
+main p{
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-top: .5rem;
+}
+
+
+#contador{
+  font-weight: 800;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--brand), var(--brand-light));
+  padding: .4rem .9rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(1,116,116,.35);
+  position: relative;
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+
+#contador::after{
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 18px;
+  background: radial-gradient(circle, rgba(1,116,116,.35), transparent 70%);
+  z-index: -1;
+  animation: spin 2.5s linear infinite;
+}
+
+
+main > p{
+  margin-top: 1.5rem;
+  text-align: center;
+  background: rgba(1,116,116,0.08);
+  border: 1px dashed rgba(1,116,116,0.25);
+  border-radius: 12px;
+  padding: .9rem 1.2rem;
+  font-size: 1rem;
+}
+
+
+#confete{
+  position: fixed;
+  inset: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .95;
+}
+
+
+main > *:not(#confete){
+  position: relative;
+  z-index: 1;
+}
+
+
+@keyframes pulse{
+  0%,100%{ transform: scale(1); }
+  50%{ transform: scale(1.08); }
+}
+
+@keyframes spin{
+  0%{ transform: rotate(0); }
+  100%{ transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp{
+  from{ transform: translateY(30px); opacity: 0; }
+  to{ transform: translateY(0); opacity: 1; }
+}
