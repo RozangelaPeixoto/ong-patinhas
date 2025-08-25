@@ -31,6 +31,7 @@ jobs:
         env:
           MP_ACCESS_TOKEN: ${{ secrets.MP_ACCESS_TOKEN}}
           MP_PUBLIC_KEY: ${{ secrets.MP_PUBLIC_KEY}}
+          RC_SECRET_KEY: ${{ secrets.RC_SECRET_KEY}}
         run: mvn --batch-mode test -Dspring.profiles.active=test
 
   build:
