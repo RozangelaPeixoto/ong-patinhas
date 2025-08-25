@@ -91,3 +91,4 @@ jobs:
             DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}
             EOF
             sudo ./deploy.sh
+
