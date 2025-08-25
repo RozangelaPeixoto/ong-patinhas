@@ -31,30 +31,24 @@
      margin: 0 auto;
  }
 
+.formulario-doacao span {
+    font-size: 13px;
+    color: red;
+    display: block;
+    text-align: left;
+    padding-left: 12px;
+    padding-top: 4px;
+}
+
  .formulario-doacao input,
  .formulario-doacao textarea,
  .formulario-doacao button {
      width: 100%;
      padding: 12px;
-     margin-bottom: 16px;
+     margin-top: 16px;
      border: 1px solid #017474;
      border-radius: 8px;
  }
-
-
-.formulario-doacao input[type="text"],
-.formulario-doacao input[type="email"],
-.formulario-doacao input[type="number"] {
-    color: red !important;  
-}
-
-
-.formulario-doacao input::placeholder {
-    color: red;
-}
-
-
-
 
  .formulario-doacao button {
      background-color: #017474;
