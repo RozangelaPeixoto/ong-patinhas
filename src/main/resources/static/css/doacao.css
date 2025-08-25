@@ -26,23 +26,32 @@
      background-color: #f9f9f9;
      border-radius: 8px;
      padding: 24px;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     box-shadow: 0 4px 8px #017474;
      max-width: 500px;
      margin: 0 auto;
  }
+
+.formulario-doacao span {
+    font-size: 13px;
+    color: red;
+    display: block;
+    text-align: left;
+    padding-left: 12px;
+    padding-top: 4px;
+}
 
  .formulario-doacao input,
  .formulario-doacao textarea,
  .formulario-doacao button {
      width: 100%;
      padding: 12px;
-     margin-bottom: 16px;
-     border: 1px solid #ddd;
+     margin-top: 16px;
+     border: 1px solid #017474;
      border-radius: 8px;
  }
 
  .formulario-doacao button {
-     background-color: #02ebf7;
+     background-color: #017474;
      color: #fff;
      border: none;
      cursor: pointer;
@@ -51,7 +60,7 @@
  }
 
  .formulario-doacao button:hover {
-     background-color: #0191c8;
+     background-color: #477474;
  }
 
  .informacoes {
@@ -66,7 +75,7 @@
      background-color: #f9f9f9;
      border-radius: 8px;
      padding: 20px;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     box-shadow: 0 4px 8px #017474;
      max-width: 400px;
      text-align: center;
  }

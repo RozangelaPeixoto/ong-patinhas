@@ -10,14 +10,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="../static/img/logo-factoring.png" type="image/x-icon">
+    <link rel="icon" th:href="@{/img/logo-factoring.png}" type="image/x-icon">
     <script th:src="@{/js/redirect.js}" defer></script>
 </head>
-
 <body>
     <header> 
         <a href="index.html">
-            <img src="../static/img/logo.png" alt="ONG Das Patinhas" width="300" height="80">
+            <img th:src="@{/img/logo.png}" alt="ONG Das Patinhas" width="300" height="80">
         </a>
         <nav>
             <a th:href="@{/}">Início</a>
@@ -26,38 +25,31 @@
             <a th:href="@{/quemsomos}">Quem Somos</a>
         </nav>
     </header>
-
     <main>
         <article>
           <h3>Status da Doação: <span th:text="${status}"></span></h3>
           <p th:text="${message}"></p>
         </article>
         <p>Você será redirecionado para a página principal em <span id="contador">5</span> segundos...</p>
+        <canvas id="confete"></canvas>
     </main>
-
     <footer>
-        <div>
-            <img src="../static/img/logo.png" alt="ONG Das Patinhas">
-            <p>Cuidando com amor, vivendo com alegria: ONG Das Patinhas, onde a vida dos pets é mais feliz!</p>
-        </div>
-        <div>
-            <strong class="titulo">Links rápidos</strong>
-            <a th:href="@{/}">Início</a>
-            <a th:href="@{/doacao}">Doação</a>
-            <a th:href="@{/adocao}">Adoção</a>
-            <a th:href="@{/quemsomos}">Quem Somos</a>
-        </div>
-        <div>
+        <img th:src="@{/img/logo.png}" alt="ONG Patinhas">
+        <section class="contact-icons">
             <strong class="titulo">Encontre-nos</strong>
-            <p>WhatsApp: (97) 98417-3223</p>
-            <p>Email: contato@daspatinhas.org.br</p>
-            <p>Endereço: Av. 7 de Setembro, nº 42, Centro</p>
-        </div>
+            <a href="#" aria-label="Telefone">
+                <img th:src="@{/img/phone.png}" alt="Telefone" width="32" height="32">
+            </a>
+
+            <a href="#" aria-label="E-mail">
+                <img th:src="@{/img/email.png}" alt="E-mail" width="32" height="32">
+            </a>
+
+            <a href="#" target="_blank" rel="noopener" aria-label="Mapa">
+                <img th:src="@{/img/gps.png}" alt="Mapa" width="32" height="32">
+            </a>
+        </section>
     </footer>
-
-    <script>
-
-    </script>
 </body>
 
 </html>

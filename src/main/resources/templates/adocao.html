@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONG Das Patinhas - Adoção de Cachorros</title>
-    <meta name="description"
-          content="Encontre seu novo amigo de quatro patas na ONG Das Patinhas. Veja os cães disponíveis para adoção com fotos, raça, idade e habilidades.">
+    <meta name="description" content="Encontre seu novo amigo de quatro patas na ONG Das Patinhas. Veja os cães disponíveis para adoção com fotos, raça, idade e habilidades.">
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,18 +49,23 @@
     </section>
 </main>
 
-<footer>
+    <footer>
+        <img th:src="@{/img/logo.png}" alt="ONG Patinhas">
+        <section class="contact-icons">
+            <strong class="titulo">Encontre-nos</strong>
+            <a href="#" aria-label="Telefone">
+                <img th:src="@{/img/phone.png}" alt="Telefone" width="32" height="32">
+            </a>
 
-    <div>
-        <img th:src="@{/img/logo.png}" alt="ONG Das Patinhas">
-    </div>
-    <div>
-        <strong class="titulo">Encontre-nos</strong>
-        <p>WhatsApp: (97) 98417-3223</p>
-        <p>Email: contato@daspatinhas.org.br</p>
-        <p>Endereço: Av. 7 de Setembro, nº 42, Centro</p>
-    </div>
-</footer>
+            <a href="#" aria-label="E-mail">
+                <img th:src="@{/img/email.png}" alt="E-mail" width="32" height="32">
+            </a>
+
+            <a href="#" target="_blank" rel="noopener" aria-label="Mapa">
+                <img th:src="@{/img/gps.png}" alt="Mapa" width="32" height="32">
+            </a>
+        </section>
+    </footer>
 
 </body>
 
