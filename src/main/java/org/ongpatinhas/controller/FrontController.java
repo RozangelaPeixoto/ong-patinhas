@@ -23,7 +23,7 @@ public class FrontController {
     }
 
     @GetMapping("/adocao")
-    public String adocao(Model model) {
+    public String dogsForAdoption(Model model) {
         List<DogDTO> dogs = dogService.findAllDogs();
         model.addAttribute("dogs", dogs);
 
@@ -31,7 +31,7 @@ public class FrontController {
     }
 
     @GetMapping("/quemsomos")
-    public String quemSomos() {
+    public String aboutUs() {
         return "quemsomos";
     }
 

@@ -25,7 +25,7 @@ public class DonationController {
     }
 
     @GetMapping("/doacao")
-    public String doacao(@ModelAttribute("donation") DonationDTO donationDTO) {
+    public String donationForm(@ModelAttribute("donation") DonationDTO donationDTO) {
         return "doacao";
     }
 
