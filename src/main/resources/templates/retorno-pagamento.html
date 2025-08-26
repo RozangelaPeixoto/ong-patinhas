@@ -7,6 +7,7 @@
     <title>ONG Das Patinhas - Adoção de Cachorros</title>
     <meta name="description" content="Encontre seu novo amigo de quatro patas na ONG Das Patinhas. Veja os cães disponíveis para adoção com fotos, raça, idade e habilidades.">
     <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/mensagem.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
@@ -15,7 +16,7 @@
 </head>
 <body>
     <header> 
-        <a href="index.html">
+        <a  th:href="@{/}">
             <img th:src="@{/img/logo.png}" alt="ONG Das Patinhas" width="300" height="80">
         </a>
         <nav>
@@ -27,10 +28,10 @@
     </header>
     <main>
         <article>
-          <h3>Status da Doação: <span th:text="${status}"></span></h3>
-          <p th:text="${message}"></p>
+          <h3 class="mensagem_titulo">Status da Doação: <span th:text="${status}"></span></h3>
+          <p th:text="${message}" class="mensagem_texto"></p>
         </article>
-        <p>Você será redirecionado para a página principal em <span id="contador">5</span> segundos...</p>
+        <p>Você será redirecionado para a página principal em <span id="contador">10</span> segundos...</p>
         <canvas id="confete"></canvas>
     </main>
     <footer>

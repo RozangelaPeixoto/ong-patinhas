@@ -20,6 +20,7 @@
  .doacao-info h2 {
      margin-top: 32px;
      margin-bottom: 16px;
+     text-align: center;
  }
 
  .formulario-doacao {
@@ -61,28 +62,4 @@
 
  .formulario-doacao button:hover {
      background-color: #477474;
- }
-
- .informacoes {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     gap: 20px;
-     margin-top: 32px;
- }
-
- .informacoes div {
-     background-color: #f9f9f9;
-     border-radius: 8px;
-     padding: 20px;
-     box-shadow: 0 4px 8px #017474;
-     max-width: 400px;
-     text-align: center;
- }
-
- .informacoes img {
-     width: 150px;
-     /* Aumenta o tamanho da imagem do Pix */
-     height: auto;
-     margin-bottom: 16px;
  }

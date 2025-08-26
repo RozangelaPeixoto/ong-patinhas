@@ -1,0 +1,114 @@
+/* === SEÇÃO PRINCIPAL ESPECIAL === */
+main {
+	min-height: 75vh;
+	display: grid;
+	place-items: center;
+	padding: 2rem;
+	background: transparent;
+	position: relative;
+	overflow: hidden;
+}
+
+main > article {
+	width: min(640px, 92vw);
+	background: linear-gradient(145deg, rgb(255 255 255 / 96%), rgb(255 255 255 / 90%));
+	border-radius: 20px;
+	padding: 2rem;
+	box-shadow:
+		0 10px 25px -8px rgb(1 116 116 / 35%),
+		0 0 0 2px rgb(1 116 116 / 15%) inset;
+	position: relative;
+	animation: fadeInUp .8s ease both;
+}
+
+main > article::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: 20px;
+	padding: 2px;
+	background: linear-gradient(135deg, var(--brand), var(--brand-light));
+	mask-composite: exclude;
+	pointer-events: none;
+}
+
+main h3 {
+    position: relative;
+	font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+	margin: 0 0 .5rem;
+	font-weight: 700;
+	color: var(--white);
+	display: flex;
+	align-items: center;
+	gap: .6rem;
+}
+
+main h3::before {
+	content: "";
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background: radial-gradient(circle at 35% 35%, #fff, transparent 70%),
+		linear-gradient(135deg, var(--brand), var(--brand-light));
+	box-shadow: 0 0 0 6px rgb(1 116 116 / 20%);
+}
+
+main p {
+	color: var(--);
+	font-size: 1.05rem;
+	line-height: 1.6;
+	margin-top: .5rem;
+}
+
+main > p {
+	margin-top: 1.5rem;
+	text-align: center;
+	background: rgb(1 116 116 / 8%);
+	border: 1px dashed rgb(1 116 116 / 25%);
+	border-radius: 12px;
+	padding: .9rem 1.2rem;
+	font-size: 1rem;
+}
+
+.mensagem_texto{
+    position: relative;
+    color: var(--white);
+}
+
+/* === CONTADOR === */
+#contador {
+	font-weight: 800;
+	color: var(--white);
+	background: linear-gradient(135deg, var(--brand), var(--brand-light));
+	padding: .4rem .9rem;
+	border-radius: 14px;
+	box-shadow: 0 4px 15px rgb(1 116 116 / 35%);
+	position: relative;
+	animation: pulse 1.2s infinite ease-in-out;
+}
+
+#contador::after {
+	content: "";
+	position: absolute;
+	inset: -6px;
+	border-radius: 18px;
+	background: radial-gradient(circle, rgb(1 116 116 / 35%), transparent 70%);
+	z-index: -1;
+	animation: spin 2.5s linear infinite;
+}
+
+/* === CONFETE === */
+#confete {
+	position: fixed;
+	inset: 0;
+	width: 100vw !important;
+	height: 100vh !important;
+	z-index: 0;
+	pointer-events: none;
+	opacity: .95;
+}
+
+main > *:not(#confete) {
+	position: relative;
+	z-index: 1;
+}

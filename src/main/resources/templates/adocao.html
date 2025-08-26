@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONG Das Patinhas - Adoção de Cachorros</title>
-    <meta name="description" content="Encontre seu novo amigo de quatro patas na ONG Das Patinhas. Veja os cães disponíveis para adoção com fotos, raça, idade e habilidades.">
+    <meta name="description"
+          content="Encontre seu novo amigo de quatro patas na ONG Das Patinhas. Veja os cães disponíveis para adoção com fotos, raça, idade e habilidades.">
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +17,7 @@
 
 <body>
 <header>
-    <a href="index.html">
+    <a th:href="@{/}">
         <img th:src="@{/img/logo.png}" alt="ONG Das Patinhas" width="300" height="80">
     </a>
     <nav>
@@ -28,7 +29,7 @@
 </header>
 
 <main>
-    <section id="adoção">
+    <section class="adocao">
         <h1>Cães Disponíveis para Adoção</h1>
         <p class="paragrafo">Conheça nossos adoráveis cães que estão esperando por um lar amoroso. Cada um deles tem uma
             história única e habilidades especiais. Se você está procurando um novo amigo de quatro patas, dê uma olhada
@@ -38,7 +39,7 @@
             <div class="cachorro" th:each="dog : ${dogs}">
                 <img th:src="@{'/img/adocao/' + ${dog.image}}" th:alt="'Foto ' + ${dog.name}">
                 <h2 th:text="${dog.name}"></h2>
-                <div class="cachorro_info">
+                <div class="cachorro-info">
                     <p><strong>Raça:</strong> <span th:text="${dog.breed}"></span></p>
                     <p><strong>Idade:</strong> <span th:text="${dog.age}"></span></p>
                     <p><strong>Habilidades:</strong> <span th:text="${dog.skills}"></span></p>
@@ -49,23 +50,23 @@
     </section>
 </main>
 
-    <footer>
-        <img th:src="@{/img/logo.png}" alt="ONG Patinhas">
-        <section class="contact-icons">
-            <strong class="titulo">Encontre-nos</strong>
-            <a href="#" aria-label="Telefone">
-                <img th:src="@{/img/phone.png}" alt="Telefone" width="32" height="32">
-            </a>
+<footer>
+    <img th:src="@{/img/logo.png}" alt="ONG Patinhas">
+    <section class="contact-icons">
+        <strong class="titulo">Encontre-nos</strong>
+        <a href="#" aria-label="Telefone">
+            <img th:src="@{/img/phone.png}" alt="Telefone" width="32" height="32">
+        </a>
 
-            <a href="#" aria-label="E-mail">
-                <img th:src="@{/img/email.png}" alt="E-mail" width="32" height="32">
-            </a>
+        <a href="#" aria-label="E-mail">
+            <img th:src="@{/img/email.png}" alt="E-mail" width="32" height="32">
+        </a>
 
-            <a href="#" target="_blank" rel="noopener" aria-label="Mapa">
-                <img th:src="@{/img/gps.png}" alt="Mapa" width="32" height="32">
-            </a>
-        </section>
-    </footer>
+        <a href="#" target="_blank" rel="noopener" aria-label="Mapa">
+            <img th:src="@{/img/gps.png}" alt="Mapa" width="32" height="32">
+        </a>
+    </section>
+</footer>
 
 </body>
 

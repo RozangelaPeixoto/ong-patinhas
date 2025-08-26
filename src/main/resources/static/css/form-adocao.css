@@ -1,4 +1,4 @@
-.selected_dog{
+.selected-dog{
     display: flex;
     justify-content: center;
     max-width: 500px;
@@ -7,9 +7,10 @@
     padding: 16px;
     border: 2px dotted #017474;
     border-radius: 16px;
+    align-items: center;
 }
 
-.selected_dog img{
+.selected-dog img{
     width: 150px;
     border-radius: 16px;
 }
@@ -20,7 +21,7 @@ form {
     padding: 20px 30px;
     background: #fff;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
 }
 
 h1 {
@@ -73,16 +74,13 @@ label:has(+ label.switch){
 .slider {
     position: absolute;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background-color: #ccc;
     transition: .4s;
     border-radius: 28px;
 }
 
-.slider:before {
+.slider::before {
     position: absolute;
     content: "";
     height: 22px;
@@ -98,7 +96,7 @@ label:has(+ label.switch){
   background-color: #017474;
 }
 
-.switch input[type="checkbox"]:checked ~ .slider:before {
+.switch input[type="checkbox"]:checked ~ .slider::before {
   transform: translateX(22px);
 }
 
@@ -106,10 +104,9 @@ textarea {
     resize: vertical;
 }
 
-.g-recaptcha{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 16px;
+span.erro{
+    font-size: 13px;
+    color: red;
 }
 
 button {
@@ -136,7 +133,7 @@ button:hover {
   text-align: center;
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
     form {
         padding: 15px 20px;
     }
