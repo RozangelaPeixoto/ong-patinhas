@@ -1,4 +1,4 @@
- #doacao {
+ .doacao {
      padding: 40px 80px;
      text-align: center;
  }
@@ -20,7 +20,6 @@
  .doacao-info h2 {
      margin-top: 32px;
      margin-bottom: 16px;
-     text-align: center;
  }
 
  .formulario-doacao {

@@ -54,6 +54,7 @@ h2 {
 	font-weight: 600;
 	font-size: 32px;
 	color: #017474;
+	margin-bottom: 16px;
 }
 
 h1 {
@@ -123,7 +124,7 @@ h1 {
 
 .institucional > div {
 	flex: 1;
-	padding: 1rem;
+	padding: 1rem 3rem;
 	background-color: #fff;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgb(0 0 0 / 10%);
@@ -156,6 +157,11 @@ h1 {
 .adocao {
 	padding: 40px 80px;
 	text-align: center;
+}
+
+.adocao .paragrafo{
+    width: 60%;
+    display: inline-block;
 }
 
 .cachorros {
@@ -296,7 +302,6 @@ footer nav a,
 footer a {
 	color: #fff;
 	display: block;
-	margin-bottom: 16px;
 	text-decoration: none;
 }
 
@@ -325,7 +330,6 @@ footer p a {
 	gap: 20px;
 	justify-content: center;
 	align-items: center;
-	padding: 10px 0;
 }
 
 .contact-icons a img {

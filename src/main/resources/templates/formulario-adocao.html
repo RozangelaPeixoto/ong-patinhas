@@ -50,7 +50,7 @@
 
     <label for="isAdult">Você é maior de idade?</label>
     <label class="switch">
-        <input type="checkbox" id="isAdult" th:field="*{isAdult}" required/>
+        <input type="checkbox" id="isAdult" th:field="*{isAdult}" required />
         <span class="slider"></span>
     </label>
     <span th:if="${#fields.hasErrors('isAdult')}" th:errors="*{isAdult}" class="erro"></span>
@@ -75,7 +75,7 @@
     </label>
 
     <label for="adoptionReason">Por que deseja adotar?</label>
-    <textarea id="adoptionReason" th:field="*{adoptionReason}" rows="4" required></textarea>
+    <textarea id="adoptionReason" th:field="*{adoptionReason}" rows="4" required ></textarea>
     <span th:if="${#fields.hasErrors('adoptionReason')}" th:errors="*{adoptionReason}" class="erro"></span>
 
     <div class="g-recaptcha" data-sitekey="6LeXbaorAAAAACdjA5M2fXU4xsJMfGFHytsTOvLu"></div>
@@ -84,9 +84,6 @@
     <input type="hidden" id="dog_id" name="dogId" th:value="${dog.id}" />
 
     <button type="submit">Enviar</button>
-    <div th:if="${successMessage}" class="success-message">
-        <p th:text="${successMessage}"></p>
-    </div>
 </form>
 <footer>
     <img th:src="@{/img/logo.png}" alt="ONG Patinhas">

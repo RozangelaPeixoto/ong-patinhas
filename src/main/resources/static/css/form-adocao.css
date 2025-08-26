@@ -104,9 +104,20 @@ textarea {
     resize: vertical;
 }
 
+input:has(+ span.erro),
+textarea:has(+ span.erro){
+    margin-bottom: 0;
+}
+
 span.erro{
     font-size: 13px;
     color: red;
+    display: block;
+    margin: 4px 0 10px 10px;
+}
+
+.g-recaptcha {
+    margin-top: 0;
 }
 
 button {
@@ -120,6 +131,7 @@ button {
     font-size: 16px;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    margin-top: 1rem;
 }
 
 button:hover {
