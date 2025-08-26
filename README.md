@@ -1,35 +1,41 @@
 # Documentação do Pipeline CI/CD
 
-## Objetivo
+## Objetivo  
+*Responsáveis: Jesus, Wanessa, Amanda*  
 Este pipeline automatiza o teste, build, publicação de imagem Docker, deploy em servidor e criação de release para o projeto **ong-patinhas-app**.
 
 ## Fluxo do Pipeline
 
-1. **Testes**
+1. **Testes**  
+   *Responsável: Wanessa*  
    - Disparado em qualquer push para qualquer branch.
    - Também em pull requests para a branch `main`.
    - Executa testes automatizados com Maven usando o perfil `test`.
 
-2. **Build**
+2. **Build**  
+   *Responsáveis: Amanda, Wanessa*  
    - Executado após os testes.
    - Só ocorre em pushes ou PRs direcionados à branch `main`.
    - Constrói o projeto com Maven (pulando testes).
    - Faz login no Docker Hub.
    - Constrói a imagem Docker multi-stage e publica no Docker Hub.
 
-3. **Deploy**
+3. **Deploy**  
+   *Responsável: Jesus*  
    - Executado após o build, somente em pushes para a branch `main` (após merge).
    - Realiza conexão SSH com o servidor.
    - Atualiza o arquivo `.env` remoto com variáveis de ambiente do GitHub Secrets.
    - Executa o script de deploy (`deploy.sh`).
 
-4. **Release**
+4. **Release**  
+   *Responsável: Amanda*  
    - Executado após o deploy, somente na branch `main`.
    - Cria uma Release no GitHub, usando o número do workflow como tag.
 
 ## Arquivos Importantes
 
-### 1. **Dockerfile**
+### 1. **Dockerfile**  
+*Responsável: Jesus*  
 Descreve como a imagem do app é construída. Exemplo típico:
 
 ```
@@ -45,13 +51,15 @@ FROM eclipse-temurin:21-jdk
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]OINT ["java", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
 
-### 2. **Workflow do GitHub Actions**
+### 2. **Workflow do GitHub Actions**  
+*Responsáveis: Wanessa (test), Amanda (build, release), Jesus (deploy)*  
 Arquivo: `.github/workflows/build-and-test.yml`
 
-#### Principais Secrets Usados
+#### Principais Secrets Usados  
+*Responsável: Amanda*  
 - `MP_ACCESS_TOKEN`, `MP_PUBLIC_KEY` (para testes e deploy)
 - `DATABASE_URL`, `DATABASE_USERNAME`, `DATABASE_PASSWORD` (para build e deploy)
 - `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN` (para publicar imagem Docker)
@@ -59,6 +67,8 @@ Arquivo: `.github/workflows/build-and-test.yml`
 - `GITHUB_TOKEN` (para criar releases)
 
 ## Como Funciona
+
+*Responsáveis: Wanessa (test), Amanda (build, release, secrets), Jesus (deploy, DockerHub)*
 
 - **Qualquer push**: Roda os testes automatizados.
 - **Pull request para main**: Roda testes e build.
@@ -70,18 +80,22 @@ Arquivo: `.github/workflows/build-and-test.yml`
 
 ## Como Configurar
 
-1. **Secrets**
+1. **Secrets**  
+   *Responsável: Amanda*  
    - Configure todos os secrets citados acima em Settings > Secrets and variables
-2. **Docker Hub**
+2. **Docker Hub**  
+   *Responsável: Jesus*  
    - Crie uma conta e repositório.
    - Gere um token de acesso e cadastre como secret.
-3. **Servidor**
+3. **Servidor**  
+   *Responsável: Jesus*  
    - Gere chave SSH e adicione ao servidor.
    - Cadastre IP, usuário e chave privada como secrets.
    - O script `deploy.sh` deve estar no diretório `/home/ubuntu` no servidor.
 
 ## Monitoramento e Erros
 
+*Responsáveis: Todos*  
 - O progresso e logs do pipeline podem ser acompanhados na aba **Actions** do GitHub.
 - Falhas são mostradas com detalhes em cada etapa.
 - Permissões dos secrets.
@@ -91,6 +105,7 @@ Arquivo: `.github/workflows/build-and-test.yml`
 
 ## Dicas
 
+*Responsáveis: Todos*  
 - **Atualize as variáveis de ambiente e secrets sempre que necessário.**
 - **Mantenha o Dockerfile bem simples e otimizado para produção.**
 - **Documente scripts de deploy para facilitar manutenção.**
