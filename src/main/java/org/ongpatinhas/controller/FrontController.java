@@ -35,4 +35,9 @@ public class FrontController {
         return "quemsomos";
     }
 
+    @GetMapping("/mensagem")
+    public String message() {
+        return "mensagem";
+    }
+
 }

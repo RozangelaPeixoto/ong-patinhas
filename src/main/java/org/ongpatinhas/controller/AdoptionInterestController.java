@@ -24,11 +24,6 @@ public class AdoptionInterestController {
         this.dogService = dogService;
     }
 
-    @GetMapping("/formulario-adocao/")
-    public String redirectFormAdoption(){
-        return "adocao";
-    }
-
     @GetMapping("/formulario-adocao/{id}")
     public String formAdoption(@PathVariable("id") String id,
                                @ModelAttribute("adoptionInterest") AdoptionInterestDTO adoptionInterestDTO,
@@ -47,6 +42,9 @@ public class AdoptionInterestController {
                                          @RequestParam("g-recaptcha-response") String captchaResponse){
 
         boolean captchaValido = captchaService.validateCaptcha(captchaResponse);
+
+        DogDTO dto = dogService.findInfoDogById(adoptionInterestDTO.dogId());
+        model.addAttribute("dog", dto);
 
         if (result.hasErrors() || !captchaValido) {
             if(!captchaValido) model.addAttribute("errorCaptcha", "Preencha o captcha");
