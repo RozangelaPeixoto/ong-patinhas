@@ -92,6 +92,7 @@ jobs:
             sudo cat > .env << EOF
             MP_ACCESS_TOKEN=${{ secrets.MP_ACCESS_TOKEN }}
             MP_PUBLIC_KEY=${{ secrets.MP_PUBLIC_KEY }}
+            RC_SECRET_KEY=${{ secrets.RC_SECRET_KEY }}
             DATABASE_URL=${{ secrets.DATABASE_URL }}
             DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }}
             DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}

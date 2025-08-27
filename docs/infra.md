@@ -9,14 +9,11 @@
 ![Monit](https://img.shields.io/badge/Monit-2C3E50?style=for-the-badge)
 ![Certbot](https://img.shields.io/badge/Certbot-3A833C?style=for-the-badge&logo=letsencrypt&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
----
 
 ## 🏗️ Arquitetura
 
 ### 📊 Diagrama da Arquitetura
 <img width="530" height="481" alt="arquitetura ong patinhas" src="https://github.com/user-attachments/assets/5dc4f961-c5b6-4219-9270-7e9c1463adc0" />
-
----
 
 ## ☁️ Hospedagem na AWS
 
@@ -29,20 +26,14 @@
 | Armazenamento | 16 GB SSD              |
 | SO            | Ubuntu Server 24.04    |
 
----
-
 ### 🗄️ RDS (Banco de Dados)
 - Engine: **MySQL**  
 - Segurança: **Subnet privada + grupo de segurança com portas liberadas**  
-- Apenas a **EC2** tem acesso liberado ao banco  
-
----
+- Apenas a **EC2** tem acesso liberado ao banco
 
 ### 🌐 Domínio
 - Registrado no **NoIP** (gratuito)  
-- SSL configurado via **Let's Encrypt** (gratuito)  
-
----
+- SSL configurado via **Let's Encrypt** (gratuito)
 
 ## ⚙️ Serviços
 
@@ -56,8 +47,6 @@
 | **Monit**      | Reinício automático em falhas |
 | **NoIP**       | Atualização dinâmica de DNS |
 
----
-
 ### 🌍 Endereços de Acesso
 
 - **Inseguro:**  
@@ -66,9 +55,7 @@
 - **Seguro (HTTPS):**  
   - [https://ong-patinhas.ddns.net](https://ong-patinhas.ddns.net)  
   - [https://ong-patinhas.ddns.net/bancodedados](https://ong-patinhas.ddns.net/bancodedados)  
-  - [https://ong-patinhas.ddns.net/monitoramento](https://ong-patinhas.ddns.net/monitoramento)  
-
----
+  - [https://ong-patinhas.ddns.net/monitoramento](https://ong-patinhas.ddns.net/monitoramento)
 
 ## 🔐 Extras de Segurança
 - **Autostart**: Containers iniciam automaticamente com o sistema  
@@ -77,15 +64,11 @@
 - **Chaves SSH**: Autenticação segura sem senhas  
 - **Firewall**: Apenas portas essenciais liberadas  
 - **SSL/HTTPS**: Conexão criptografada em todos os serviços  
-- **GitHub Secrets**: Armazenamento seguro de variáveis de ambiente e credenciais  
-
----
+- **GitHub Secrets**: Armazenamento seguro de variáveis de ambiente e credenciais
 
 ## ✅ Resumo
 A equipe **Infra** estruturou um ambiente **robusto, seguro e automatizado** para a hospedagem da aplicação **Ong-Patinhas** na **AWS**, garantindo:  
 - **Disponibilidade**  
 - **Monitoramento em tempo real**  
 - **Segurança de dados e acessos**  
-- **Automação de deploy e recuperação de falhas**  
-
----
+- **Automação de deploy e recuperação de falhas**

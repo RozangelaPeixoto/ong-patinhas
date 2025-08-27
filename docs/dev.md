@@ -9,8 +9,6 @@
 ![JUnit](https://img.shields.io/badge/JUnit-5-red?style=for-the-badge&logo=junit5&logoColor=white)
 ![Mockito](https://img.shields.io/badge/Mockito-4.11.0-yellow?style=for-the-badge&logo=mockito&logoColor=white)
 
----
-
 ## 🚀 Tecnologias Utilizadas
 
 ### Backend
@@ -39,8 +37,6 @@
 - **JUnit 5** - Testes unitários
 - **Mockito** - Mocks para testes
 
----
-
 ## 📁 Estrutura do Projeto
 
 ```
@@ -61,8 +57,6 @@ src/
 │       └── application.yml  # Configurações da aplicação
 └── test/                    # Testes unitários e de integração
 ```
-
----
 
 ## ⚙️ Configuração do Ambiente
 
@@ -99,8 +93,6 @@ CREATE DATABASE ongpatinhas CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 2. As tabelas serão criadas automaticamente pelo Flyway na primeira execução.
 
----
-
 ## 🔧 Instalação e Execução
 
 1. **Clone o repositório:**
@@ -120,8 +112,6 @@ mvn spring-boot:run
    - URL: http://localhost:8080
    - A aplicação estará disponível no navegador
 
----
-
 ## 🧪 Executando os Testes
 
 ### Todos os testes:
@@ -138,8 +128,6 @@ mvn test -Dtest=NomeDoTeste
 ```bash
 mvn test -Dtest=NomeDoTeste -X
 ```
-
----
 
 ## 📊 Funcionalidades Principais
 
@@ -162,8 +150,6 @@ mvn test -Dtest=NomeDoTeste -X
 - Proteção contra spam com reCAPTCHA
 - Sanitização de dados de entrada
 
----
-
 ## 🗃️ Estrutura do Banco de Dados
 
 ### Tabelas Principais:
@@ -172,8 +158,6 @@ mvn test -Dtest=NomeDoTeste -X
 - **donations** - Registro de doações
 
 As migrações estão localizadas em `src/main/resources/db/migration/`.
-
----
 
 ## 🔄 API Endpoints
 
@@ -190,8 +174,6 @@ As migrações estão localizadas em `src/main/resources/db/migration/`.
 - `POST /formulario-adocao` — Envia interesse em adoção (via formulário)
 - `POST /doacao` — Inicia processo de doação (via formulário)
 - `POST /webhook` — Webhook Mercado Pago (REST, recebe notificações)
-
----
 
 ## 🚢 Deploy
 
@@ -210,8 +192,6 @@ docker run -p 8080:8080 --env-file .env ong-patinhas
 - Configure proxy reverso (Nginx/Apache)
 - Habilite HTTPS
 
----
-
 ## 🤝 Contribuindo
 
 1. Faça um fork do projeto
@@ -219,8 +199,6 @@ docker run -p 8080:8080 --env-file .env ong-patinhas
 3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
-
----
 
 ## 📝 Licença
 
