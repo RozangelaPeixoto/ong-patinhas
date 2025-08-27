@@ -1,6 +1,16 @@
 # 👥 Equipes do Projeto
 
----
+## 🎯 Gestão
+
+**Participantes:**  
+Eric
+
+### 🛠️ Atividades
+
+- Registro e atualização das tarefas no Jira
+- Gestão e coordenação das equipes
+- Monitoramento e acompanhamento da execução das tarefas
+- Validação e aprovação das demandas
 
 ## 💻 Desenvolvimento
 
@@ -26,8 +36,6 @@ Jefferson • Jonathan • Rozangela
 - Validação de formulários e proteção com Google reCAPTCHA
 - Testes automatizados (JUnit 5, Mockito)
 - Configuração de _profiles_ para ambientes de desenvolvimento, teste e produção
-
----
 
 ## ⚙️ CI/CD
 
@@ -57,8 +65,6 @@ Amanda • Jesus • Wanessa
 - Implementação do _job_ de **Deploy** (deploy via SSH, variáveis de ambiente)
 - Documentação do pipeline CI/CD
 
----
-
 ## 🏗️ Infraestrutura
 
 **Participantes:**  
@@ -85,8 +91,6 @@ Thiago • Nathan • Anderson
 - Instalação de **Monit, Prometheus e Grafana**
 - Configuração de alertas e dashboards
 - Monitoramento de containers Docker e serviços
-
----
 
 ## 🔐 Comunicação & Segurança
 
