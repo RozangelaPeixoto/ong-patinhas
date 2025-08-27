@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONG Das Patinhas - Doações</title>
+    <meta name="description" content="Contribua para a ONG Das Patinhas com doações via Pix ou transferência bancária. Ajude-nos a continuar nosso trabalho com animais abandonados.">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/form-adocao.css}">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../static/img/logo-factoring.png" type="image/x-icon">
+</head>
+
+<body>
+
+<header>
+    <a th:href="@{/}">
+        <img th:src="@{/img/logo.png}" alt="ONG Das Patinhas" width="300" height="80">
+    </a>
+    <nav>
+        <a th:href="@{/}">Início</a>
+        <a th:href="@{/doacao}">Doação</a>
+        <a th:href="@{/adocao}">Adoção</a>
+        <a th:href="@{/quemsomos}">Quem Somos</a>
+    </nav>
+</header>
+<h1>Formulário de Adoção</h1>
+
+<article class="selected-dog" th:if="${dog != null}">
+    <div>
+        <img th:src="@{'/img/adocao/' + ${dog.image}}" alt="Foto do cachorro">
+    </div>
+    <div>
+        <p><b>Nome:</b> <span th:text="${dog.name}"></span></p>
+        <p><b>Raça:</b> <span th:text="${dog.breed}"></span></p>
+        <p><b>Idade:</b> <span th:text="${dog.age}"></span></p>
+        <p><b>Habilidades:</b> <span th:text="${dog.skills}"></span></p>
+    </div>
+</article>
+
+<form th:action="@{/formulario-adocao}" th:object="${adoptionInterest}" method="post">
+
+    <label for="fullName">Nome Completo:</label>
+    <input type="text" id="fullName" th:field="*{fullName}" required />
+    <span th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}" class="erro"></span>
+
+    <label for="isAdult">Você é maior de idade?</label>
+    <label class="switch">
+        <input type="checkbox" id="isAdult" th:field="*{isAdult}" required />
+        <span class="slider"></span>
+    </label>
+    <span th:if="${#fields.hasErrors('isAdult')}" th:errors="*{isAdult}" class="erro"></span>
+
+    <label for="phone">Telefone:</label>
+    <input type="text" id="phone" th:field="*{phone}" required />
+    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="erro"></span>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" th:field="*{email}" required />
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="erro"></span>
+
+    <label for="hadPetsBefore">Já teve animais antes?</label>
+    <label class="switch">
+        <input type="checkbox" id="hadPetsBefore" th:field="*{hadPetsBefore}" />
+        <span class="slider"></span>
+    </label>
+
+    <label for="currentlyHasPets">Possui outros animais atualmente?</label><label class="switch">
+        <input type="checkbox" id="currentlyHasPets" th:field="*{currentlyHasPets}" />
+        <span class="slider"></span>
+    </label>
+
+    <label for="adoptionReason">Por que deseja adotar?</label>
+    <textarea id="adoptionReason" th:field="*{adoptionReason}" rows="4" required ></textarea>
+    <span th:if="${#fields.hasErrors('adoptionReason')}" th:errors="*{adoptionReason}" class="erro"></span>
+
+    <div class="g-recaptcha" data-sitekey="6LeXbaorAAAAACdjA5M2fXU4xsJMfGFHytsTOvLu"></div>
+    <span th:if="${errorCaptcha}" th:text="${errorCaptcha}" class="erro"></span>
+
+    <input type="hidden" id="dog_id" name="dogId" th:value="${dog.id}" />
+
+    <button type="submit">Enviar</button>
+</form>
+<footer>
+    <img th:src="@{/img/logo.png}" alt="ONG Patinhas">
+    <section class="contact-icons">
+        <strong class="titulo">Encontre-nos</strong>
+        <a href="#" aria-label="Telefone">
+            <img th:src="@{/img/phone.png}" alt="Telefone" width="32" height="32">
+        </a>
+
+        <a href="#" aria-label="E-mail">
+            <img th:src="@{/img/email.png}" alt="E-mail" width="32" height="32">
+        </a>
+
+        <a href="#" target="_blank" rel="noopener" aria-label="Mapa">
+            <img th:src="@{/img/gps.png}" alt="Mapa" width="32" height="32">
+        </a>
+    </section>
+</footer>
+</body>
+</html>

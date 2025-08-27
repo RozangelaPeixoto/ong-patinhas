@@ -21,3 +21,5 @@ spring:
       url: https://ong-patinhas.ddns.net/pendente
     failure:
       url: https://ong-patinhas.ddns.net/cancelado
+  captcha:
+    secret-key: ${RC_SECRET_KEY}

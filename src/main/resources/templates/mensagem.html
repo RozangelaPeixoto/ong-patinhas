@@ -8,11 +8,12 @@
     <meta name="description"
           content="Encontre seu novo amigo de quatro patas na ONG Das Patinhas. Veja os cães disponíveis para adoção com fotos, raça, idade e habilidades.">
     <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/mensagem.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="icon" th:href="@{/img/logo-factoring.png}" type="image/x-icon">
-    <script th:src="@{/js/index.js}" defer></script>
+    <link rel="icon" href="../static/img/logo-factoring.png" type="image/x-icon">
+    <script th:src="@{/js/redirect.js}" defer></script>
 </head>
 
 <body>
@@ -29,25 +30,12 @@
 </header>
 
 <main>
-    <section class="adocao">
-        <h1>Cães Disponíveis para Adoção</h1>
-        <p class="paragrafo">Conheça nossos adoráveis cães que estão esperando por um lar amoroso. Cada um deles tem uma
-            história única e habilidades especiais. Se você está procurando um novo amigo de quatro patas, dê uma olhada
-            em nossas opções abaixo!</p>
-
-        <div class="cachorros">
-            <div class="cachorro" th:each="dog : ${dogs}">
-                <img th:src="@{'/img/adocao/' + ${dog.image}}" th:alt="'Foto ' + ${dog.name}">
-                <h2 th:text="${dog.name}"></h2>
-                <div class="cachorro-info">
-                    <p><strong>Raça:</strong> <span th:text="${dog.breed}"></span></p>
-                    <p><strong>Idade:</strong> <span th:text="${dog.age}"></span></p>
-                    <p><strong>Habilidades:</strong> <span th:text="${dog.skills}"></span></p>
-                </div>
-                <a class="botao" th:href="@{/formulario-adocao/{id}(id=${dog.id})}">Quero Adotar</a>
-            </div>
-        </div>
-    </section>
+    <article>
+        <h3 class="mensagem_titulo">Obrigada pelo seu contato.</h3>
+        <p class="mensagem_texto">Em breve retornaremos para agendar uma visita.</p>
+    </article>
+    <p>Você será redirecionado para a página principal em <span id="contador">10</span> segundos...</p>
+    <canvas id="confete"></canvas>
 </main>
 
 <footer>
@@ -67,7 +55,6 @@
         </a>
     </section>
 </footer>
-
 </body>
 
 </html>

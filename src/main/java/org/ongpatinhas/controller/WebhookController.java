@@ -19,7 +19,7 @@ public class WebhookController {
     }
 
     @PostMapping
-    public void receberWebhook(@RequestBody Map<String, Object> payload) {
+    public void receiveWebhook(@RequestBody Map<String, Object> payload) {
         Object dataObj = payload.get("data");
         if (dataObj instanceof Map<?, ?> dataMap) {
             Object idObj = dataMap.get("id");

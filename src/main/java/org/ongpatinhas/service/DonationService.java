@@ -1,6 +1,7 @@
 package org.ongpatinhas.service;
 
 import org.ongpatinhas.dto.DonationDTO;
+import org.ongpatinhas.mapper.DonationMapper;
 import org.ongpatinhas.model.Donation;
 import org.ongpatinhas.repository.DonationRepository;
 import org.springframework.stereotype.Service;
@@ -17,12 +18,8 @@ public class DonationService {
     }
 
     public Donation createDonation(DonationDTO donationDTO, String uuid) {
-        Donation donation = new Donation();
-        donation.setId(uuid);
-        donation.setName(donationDTO.name());
-        donation.setEmail(donationDTO.email());
-        donation.setAmount(donationDTO.value());
-        donation.setCreatedAt(LocalDateTime.now());
+
+        Donation donation = DonationMapper.toEntity(donationDTO, uuid);
         saveDonation(donation);
         return donation;
     }
