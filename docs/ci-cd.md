@@ -5,13 +5,9 @@
 ![Maven](https://img.shields.io/badge/Maven-3.6+-orange?style=for-the-badge&logo=apachemaven)
 ![Java](https://img.shields.io/badge/Java-21-blue?style=for-the-badge&logo=java)
 
----
-
 ## 🎯 Objetivo
 
 Automatizar testes, build, publicação de imagem Docker, deploy no servidor e criação de release para o projeto **Ong Patinhas**.
-
----
 
 ## 🔄 Fluxo do Pipeline
 
@@ -35,8 +31,6 @@ Automatizar testes, build, publicação de imagem Docker, deploy no servidor e c
    - Executado após o deploy, somente na branch `main`.
    - Cria uma Release no GitHub usando o número do workflow como tag.
 
----
-
 ## 📁 Arquivos Importantes
 
 ### 🐳 Dockerfile
@@ -59,8 +53,6 @@ EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
 
----
-
 ### ⚙️ Workflow do GitHub Actions
 
 Arquivo: `.github/workflows/build-and-test.yml`
@@ -72,8 +64,6 @@ Arquivo: `.github/workflows/build-and-test.yml`
 - `SERVER_IP`, `SERVER_USER`, `SERVER_SSH_KEY`
 - `GITHUB_TOKEN`
 
----
-
 ## 🛠️ Como Funciona
 
 - **Qualquer push:** Executa testes automatizados.
@@ -83,8 +73,6 @@ Arquivo: `.github/workflows/build-and-test.yml`
     2. Publica imagem Docker.
     3. Deploy automático via SSH.
     4. Cria release no GitHub.
-
----
 
 ## 📝 Configuração
 
@@ -100,20 +88,14 @@ Arquivo: `.github/workflows/build-and-test.yml`
     - Cadastre IP, usuário e chave privada como secrets.
     - O script `deploy.sh` deve estar em `/home/ubuntu` no servidor.
 
----
-
 ## 📊 Monitoramento & Erros
 
 - Acompanhe o progresso e logs na aba **Actions** do GitHub.
 - Falhas são detalhadas em cada etapa.
 - Verifique permissões dos secrets, versão do JDK/Maven, configuração do Dockerfile e chave SSH.
 
----
-
 ## 💡 Dicas
 
 - Atualize variáveis de ambiente e secrets sempre que necessário.
 - Mantenha o Dockerfile simples e otimizado.
 - Documente scripts de deploy para facilitar manutenção.
-
----
