@@ -2,9 +2,9 @@ name: Build and Test Spring App
 
 on:
   push:
-    branches: ["**"]           # qualquer push → roda teste
+    branches: ["**"]
   pull_request:
-    branches: ["main"]         # PR para main → teste + build
+    branches: ["main"]
 
 jobs:
   test:
@@ -78,7 +78,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    if: github.ref == 'refs/heads/main'   # 👈 garante que só deploya na main (após merge)
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Atualizar arquivo .env no servidor e executar deploy
         uses: appleboy/ssh-action@v0.1.7

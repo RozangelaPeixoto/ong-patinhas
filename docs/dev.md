@@ -1,15 +1,15 @@
-# 🐾 ONG Patinhas - Sistema de Adoção e Doações
+# 🐾 ONG Patinhas - Desenvolvimento
 
-Sistema web desenvolvido para facilitar o processo de adoção de cães e recebimento de doações para ONGs de proteção animal.
+![Java](https://img.shields.io/badge/Java-21-blue?style=for-the-badge&logo=java&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.4-brightgreen?style=for-the-badge&logo=springboot&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-3.6+-orange?style=for-the-badge&logo=apachemaven&logoColor=white)
+![Thymeleaf](https://img.shields.io/badge/Thymeleaf-3.1.2-green?style=for-the-badge&logo=thymeleaf&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-5.5+-blue?style=for-the-badge&logo=mysql&logoColor=white)
+![Flyway](https://img.shields.io/badge/Flyway-10.9.1-brightgreen?style=for-the-badge&logo=flyway&logoColor=white)
+![JUnit](https://img.shields.io/badge/JUnit-5-red?style=for-the-badge&logo=junit5&logoColor=white)
+![Mockito](https://img.shields.io/badge/Mockito-4.11.0-yellow?style=for-the-badge&logo=mockito&logoColor=white)
 
-## 📋 Sobre o Projeto
-
-O **ONG Patinhas** é uma aplicação web completa que permite:
-- Visualização de cães disponíveis para adoção
-- Processo de manifestação de interesse em adoção
-- Sistema de doações integrado com Mercado Pago
-- Validação de captcha para segurança
-- Interface responsiva e amigável
+---
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -39,6 +39,8 @@ O **ONG Patinhas** é uma aplicação web completa que permite:
 - **JUnit 5** - Testes unitários
 - **Mockito** - Mocks para testes
 
+---
+
 ## 📁 Estrutura do Projeto
 
 ```
@@ -59,6 +61,8 @@ src/
 │       └── application.yml  # Configurações da aplicação
 └── test/                    # Testes unitários e de integração
 ```
+
+---
 
 ## ⚙️ Configuração do Ambiente
 
@@ -95,6 +99,8 @@ CREATE DATABASE ongpatinhas CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 2. As tabelas serão criadas automaticamente pelo Flyway na primeira execução.
 
+---
+
 ## 🔧 Instalação e Execução
 
 1. **Clone o repositório:**
@@ -114,6 +120,8 @@ mvn spring-boot:run
    - URL: http://localhost:8080
    - A aplicação estará disponível no navegador
 
+---
+
 ## 🧪 Executando os Testes
 
 ### Todos os testes:
@@ -131,11 +139,12 @@ mvn test -Dtest=NomeDoTeste
 mvn test -Dtest=NomeDoTeste -X
 ```
 
+---
+
 ## 📊 Funcionalidades Principais
 
 ### 🏠 Página Inicial
 - Apresentação da ONG
-- Galeria de cães disponíveis
 - Informações de contato
 
 ### 🐕 Sistema de Adoção
@@ -153,6 +162,8 @@ mvn test -Dtest=NomeDoTeste -X
 - Proteção contra spam com reCAPTCHA
 - Sanitização de dados de entrada
 
+---
+
 ## 🗃️ Estrutura do Banco de Dados
 
 ### Tabelas Principais:
@@ -162,18 +173,25 @@ mvn test -Dtest=NomeDoTeste -X
 
 As migrações estão localizadas em `src/main/resources/db/migration/`.
 
+---
+
 ## 🔄 API Endpoints
 
 ### Frontend (Thymeleaf)
 - `GET /` - Página inicial
-- `GET /adocao` - Página de adoção
-- `GET /doacao` - Página de doações
-- `GET /formulario-adocao/{dogId}` - Formulário de adoção
+- `GET /adocao` - Listagem de cães para adoção
+- `GET /quemsomos` - Página "Quem Somos"
+- `GET /doacao` - Formulário de doação
+- `GET /formulario-adocao/{id}` - Formulário de interesse em adoção
+- `GET /mensagem` - Página de mensagem após envio de interesse
+- `GET /sucesso, GET /cancelado, GET /pendente` - Retorno do pagamento (doação)
 
-### API REST
-- `POST /api/adoption-interest` - Criar interesse em adoção
-- `POST /api/donations` - Processar doação
-- `POST /webhook/mercadopago` - Webhook do Mercado Pago
+### API REST / Webhook
+- `POST /formulario-adocao` — Envia interesse em adoção (via formulário)
+- `POST /doacao` — Inicia processo de doação (via formulário)
+- `POST /webhook` — Webhook Mercado Pago (REST, recebe notificações)
+
+---
 
 ## 🚢 Deploy
 
@@ -192,6 +210,8 @@ docker run -p 8080:8080 --env-file .env ong-patinhas
 - Configure proxy reverso (Nginx/Apache)
 - Habilite HTTPS
 
+---
+
 ## 🤝 Contribuindo
 
 1. Faça um fork do projeto
@@ -200,19 +220,8 @@ docker run -p 8080:8080 --env-file .env ong-patinhas
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
 
+---
+
 ## 📝 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
-
-## 👥 Equipe
-
-Desenvolvido com ❤️ para ajudar ONGs de proteção animal.
-
-## 📞 Suporte
-
-- Abra uma [issue](https://github.com/seu-usuario/ong-patinhas/issues) para reportar bugs
-- Entre em contato através do email: contato@ongpatinhas.org
-
----
-
-**ONG Patinhas** - Conectando corações e patinhas! 🐾
