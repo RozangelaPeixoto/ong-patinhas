@@ -1,0 +1,18 @@
+<configuration>
+    <springProperty scope="context" name="LOG_PATH" source="LOG_PATH" />
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_PATH}</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="ERROR_FILE" />
+    </root>
+</configuration>
