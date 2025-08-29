@@ -9,6 +9,9 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   application:
     name: OngPatinhas
+  logging:
+    file:
+      path: /var/log/springboot
   jpa:
     hibernate:
       ddl-auto: validate
