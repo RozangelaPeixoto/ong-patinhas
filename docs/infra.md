@@ -13,7 +13,7 @@
 ## 🏗️ Arquitetura
 
 ### 📊 Diagrama da Arquitetura
-<img width="530" height="481" alt="arquitetura ong patinhas" src="https://github.com/user-attachments/assets/5dc4f961-c5b6-4219-9270-7e9c1463adc0" />
+<img width="530" height="481" alt="arquitetura" src="https://github.com/user-attachments/assets/06f4b139-5fde-4306-afd9-e5a95bdb4182" />
 
 ## ☁️ Hospedagem na AWS
 
