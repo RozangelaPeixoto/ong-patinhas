@@ -11,7 +11,7 @@ spring:
     name: OngPatinhas
   logging:
     file:
-      path: /var/log/springboot
+      path: /var/log/springboot/spring.log
   jpa:
     hibernate:
       ddl-auto: validate
