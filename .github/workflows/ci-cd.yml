@@ -96,6 +96,7 @@ jobs:
             DATABASE_URL=${{ secrets.DATABASE_URL }}
             DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }}
             DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}
+            LOG_PATH=${{ secrets.LOG_PATH }}
             EOF
             sudo ./deploy.sh
 
