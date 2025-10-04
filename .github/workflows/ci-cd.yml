@@ -112,7 +112,7 @@ jobs:
                   - .env
                 restart: on-failure:3
                 volumes:
-                  - ${{ secrets.LOG_PATH }}:/var/log/springboot
+                  - /home/ong-patinhas/app/logs/:/var/log/springboot
                 depends_on:
                   - db
                 networks:
