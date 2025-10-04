@@ -80,7 +80,7 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/main'
     steps:
-      - name: Atualizar arquivo .env no servidor e executar deploy
+      - name: Atualizar arquivo .env e docker-compose.yml no servidor e executar deploy
         uses: appleboy/ssh-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_IP }}
@@ -88,7 +88,8 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             cd /home/ubuntu
-            sudo rm .env
+      
+            echo "Atualizando .env..."
             sudo cat > .env << EOF
             MP_ACCESS_TOKEN=${{ secrets.MP_ACCESS_TOKEN }}
             MP_PUBLIC_KEY=${{ secrets.MP_PUBLIC_KEY }}
@@ -98,7 +99,48 @@ jobs:
             DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}
             LOG_PATH=${{ secrets.LOG_PATH }}
             EOF
-            sudo ./deploy.sh
+      
+            echo "Atualizando docker-compose.yml..."
+            sudo cat > docker-compose.yml << EOF
+            version: '3.8'
+            services:
+              app:
+                image: ${{ secrets.DOCKERHUB_USERNAME }}/ong-patinhas-app
+                ports:
+                  - "7000:8080"
+                env_file:
+                  - .env
+                restart: on-failure:3
+                volumes:
+                  - /var/log/springboot:/var/log/springboot
+                depends_on:
+                  - db
+                networks:
+                  - backend
+      
+              db:
+                image: mysql:8.0
+                restart: always
+                environment:
+                  MYSQL_ROOT_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+                  MYSQL_DATABASE: ${{ secrets.DATABASE_URL }}
+                ports:
+                  - "3306:3306"
+                volumes:
+                  - mysql_data:/var/lib/mysql
+                networks:
+                  - backend
+      
+            volumes:
+              mysql_data:
+      
+            networks:
+              backend:
+                driver: bridge
+            EOF
+      
+            echo "Executando deploy..."
+            sudo ./deploy.sh 
 
   release:
     runs-on: ubuntu-latest
