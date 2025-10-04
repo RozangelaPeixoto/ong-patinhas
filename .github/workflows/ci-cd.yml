@@ -117,7 +117,7 @@ jobs:
                   - db
                 networks:
                   - backend
-      
+
               db:
                 image: mysql:8.0
                 restart: always
@@ -130,10 +130,10 @@ jobs:
                   - mysql_data:/var/lib/mysql
                 networks:
                   - backend
-      
+
             volumes:
               mysql_data:
-      
+
             networks:
               backend:
                 driver: bridge
