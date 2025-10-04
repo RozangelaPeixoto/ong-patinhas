@@ -102,7 +102,6 @@ jobs:
       
             echo "Atualizando docker-compose.yml..."
             sudo cat > docker-compose.yml << EOF
-            version: '3.8'
             services:
               app:
                 image: ${{ secrets.DOCKERHUB_USERNAME }}/ong-patinhas-app
@@ -140,7 +139,7 @@ jobs:
             EOF
       
             echo "Executando deploy..."
-            sudo ./deploy.sh 
+            sudo /home/ong-patinhas/app/./deploy.sh 
 
   release:
     runs-on: ubuntu-latest
