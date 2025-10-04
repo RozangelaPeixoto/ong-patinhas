@@ -123,7 +123,7 @@ jobs:
                 restart: always
                 environment:
                   MYSQL_ROOT_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
-                  MYSQL_DATABASE: ${{ secrets.DATABASE_URL }}
+                  MYSQL_DATABASE: ongpatinhas
                 ports:
                   - "3306:3306"
                 volumes:
