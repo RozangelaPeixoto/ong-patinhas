@@ -87,7 +87,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /home/ubuntu
+            cd /home/ong-patinhas/app
       
             echo "Atualizando .env..."
             sudo cat > .env << EOF
@@ -107,12 +107,12 @@ jobs:
               app:
                 image: ${{ secrets.DOCKERHUB_USERNAME }}/ong-patinhas-app
                 ports:
-                  - "7000:8080"
+                  - "8080:8080"
                 env_file:
                   - .env
                 restart: on-failure:3
                 volumes:
-                  - /var/log/springboot:/var/log/springboot
+                  - ${{ secrets.LOG_PATH }}:/var/log/springboot
                 depends_on:
                   - db
                 networks:
